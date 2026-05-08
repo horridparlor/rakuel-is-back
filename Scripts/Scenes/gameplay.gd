@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func summon_characters() -> void:
 	spawn_summon_slots();
+	spawn_a_character();
 	
 func spawn_summon_slots() -> void:
 	for i in range(3):
@@ -28,3 +29,8 @@ func spawn_summon_slot(y : int = 0, for_opponent : bool = false) -> void:
 	if !for_opponent:
 		x_pos = -x_pos;
 	slot.position = Vector2(x_pos, y_pos);
+
+func spawn_a_character() -> void:
+	var character : Character = System.Instance.load_child(System.Paths.Characters.BLUE_SLIME, characters_layer);
+	character.position = SLOT_MID_POS;
+	character.position.x = -character.position.x;
