@@ -2,9 +2,11 @@ extends Gameplay
 
 @onready var background_layer : Node2D = $Background;
 @onready var characters_layer : Node2D = $Characters;
+@onready var info_layer : Node2D = $Info;
 
 func _ready() -> void:
 	init_players();
+	init_menu();
 
 func init_players() -> void:
 	player1 = Player.new(Player.Side.LEFT);
@@ -53,4 +55,12 @@ func spawn_a_character(character_data : CharacterData, y : int = 0) -> void:
 	var character : Character = System.Instance.load_child(System.Paths.Characters.BLUE_SLIME, characters_layer);
 	var x_pos : int = get_summon_slot_x_pos(character_data.player.side, y);
 	var y_pos : int = get_summon_slot_y_pos(y);
+	var stat_bar : StatBar = System.Instance.load_child(System.Paths.Informative.STAT_BAR, info_layer);
+	character.data = character_data;
 	character.position = Vector2(x_pos, y_pos);
+	stat_bar.position = character.position + STAT_BAR_MARGIN;
+	stat_bar.set_character_name(character.data.character_name);
+
+func init_menu() -> void:
+	var attack_button : AttackButton = System.Instance.load_child(System.Paths.Informative.ATTACK_BUTTON, info_layer);
+	attack_button.position = ATTACK_BUTTONS_POS;

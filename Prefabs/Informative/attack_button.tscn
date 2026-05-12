@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://oh2vlbwwhuty"]
+
+[ext_resource type="Script" uid="uid://mk6nb4o7n23v" path="res://Scripts/Informative/attack_button.gd" id="1_mycj5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkohi"]
+bg_color = Color(0.4081947, 0.128174, 0.12839061, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9807014, 0.8185711, 0.7814659, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="AttackButton" type="Node2D" unique_id=847380368]
+script = ExtResource("1_mycj5")
+
+[node name="Panel" type="Panel" parent="." unique_id=970430949]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -45.0
+offset_right = 100.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkohi")

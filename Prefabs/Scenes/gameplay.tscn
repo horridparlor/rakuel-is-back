@@ -8,3 +8,5 @@ script = ExtResource("1_ur83n")
 [node name="Background" type="Node2D" parent="." unique_id=207269527]
 
 [node name="Characters" type="Node2D" parent="." unique_id=1338676224]
+
+[node name="Info" type="Node2D" parent="." unique_id=126776291]
