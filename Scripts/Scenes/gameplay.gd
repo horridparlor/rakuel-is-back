@@ -62,5 +62,9 @@ func spawn_a_character(character_data : CharacterData, y : int = 0) -> void:
 	stat_bar.set_character_name(character.data.character_name);
 
 func init_menu() -> void:
-	var attack_button : AttackButton = System.Instance.load_child(System.Paths.Informative.ATTACK_BUTTON, info_layer);
-	attack_button.position = ATTACK_BUTTONS_POS;
+	var attack_button : AttackButton;
+	var margin : Vector2;
+	for i in range(4):
+		attack_button = System.Instance.load_child(System.Paths.Informative.ATTACK_BUTTON, info_layer);
+		margin = Vector2((-1 if i % 2 == 0 else 1) * ATTACK_BUTTONS_MARGIN.x, (-1 if i < 2 else 1) * ATTACK_BUTTONS_MARGIN.y);
+		attack_button.position = ATTACK_BUTTONS_POS + margin;

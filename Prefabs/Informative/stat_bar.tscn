@@ -10,10 +10,8 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.7719016, 0.9952201, 0.7711625, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
+corner_radius_top_left = 13
+corner_radius_top_right = 13
 
 [node name="StatBar" type="Node2D" unique_id=1893045652]
 script = ExtResource("1_lmji3")
