@@ -82,11 +82,51 @@ static func read_data(file_name: String, do_debug: bool = false) -> Dictionary:
 static func write_data(json_data: Dictionary, file_name: String) -> void:
 	write(json_data, get_data_file_path(file_name));
 
-static func take_screenshot(node : Node2D) -> void:
-	var image : Image = node.get_viewport().get_texture().get_image();
-	var file_path = "user://screenshots/%s.png" % Time.get_datetime_string_from_system();
-	var error = image.save_png(file_path);
+static func take_screenshot(node : Node2D, custom_name : String = "", area : Vector2 = Vector2.ZERO, corner_radius : int = 0) -> void:
+	var viewport := node.get_viewport();
+	var image : Image = viewport.get_texture().get_image();
+	image.convert(Image.FORMAT_RGBA8);
+
+	if area != Vector2.ZERO:
+		var canvas_transform := viewport.get_canvas_transform();
+		var scale : Vector2 = canvas_transform.get_scale();
+		var full_size : Vector2i = image.get_size();
+
+		var crop_w : int = int(area.x * scale.x);
+		var crop_h : int = int(area.y * scale.y);
+
+		var node_screen_pos : Vector2 = canvas_transform * node.global_position;
+		var crop_x : int = clamp(int(node_screen_pos.x - crop_w / 2.0), 0, full_size.x - crop_w);
+		var crop_y : int = clamp(int(node_screen_pos.y - crop_h / 2.0), 0, full_size.y - crop_h);
+
+		var cropped : Image = Image.create(crop_w, crop_h, false, Image.FORMAT_RGBA8);
+		cropped.blit_rect(image, Rect2i(crop_x, crop_y, crop_w, crop_h), Vector2i.ZERO);
+		image = cropped;
+		image.resize(int(area.x), int(area.y), Image.INTERPOLATE_LANCZOS);
+
+	if corner_radius > 0:
+		var w : int = image.get_width();
+		var h : int = image.get_height();
+		var r : int = corner_radius;
+
+		for y : int in range(h):
+			for x : int in range(w):
+				var dx : int = min(x, w - 1 - x);
+				var dy : int = min(y, h - 1 - y);
+
+				if dx < r and dy < r:
+					if (dx - r) * (dx - r) + (dy - r) * (dy - r) > r * r:
+						var color : Color = image.get_pixel(x, y);
+						color.a = 0.0;
+						image.set_pixel(x, y, color);
+
+	var file_name : String = custom_name if custom_name != "" else Time.get_datetime_string_from_system();
+	file_name = file_name.replace(":", "-");
+
+	var file_path : String = "user://screenshots/%s.png" % file_name;
+	var error : int = image.save_png(file_path);
+
 	if error == OK:
 		print("Screenshot saved to: ", file_path);
 	else:
-		print("Error saving screenshot");
+		print("Error saving screenshot to: ", file_path);

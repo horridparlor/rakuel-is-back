@@ -11,3 +11,4 @@ var game_speed : float = 1.0;
 
 func init() -> void:
 	random.randomize();
+	Json.create_directories();

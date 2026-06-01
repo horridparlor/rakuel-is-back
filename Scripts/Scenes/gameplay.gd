@@ -1,70 +1,11 @@
 extends Gameplay
 
-@onready var background_layer : Node2D = $Background;
-@onready var characters_layer : Node2D = $Characters;
-@onready var info_layer : Node2D = $Info;
+@onready var card : Node2D = $CardLayer;
 
 func _ready() -> void:
-	init_players();
-	init_menu();
+	pass;
 
-func init_players() -> void:
-	player1 = Player.new(Player.Side.LEFT);
-	spawn_characters(player1);
-	player2 = Player.new(Player.Side.RIGHT);
-	spawn_characters(player2);
 
-func spawn_characters(player : Player) -> void:
-	var y : int = -1;
-	spawn_summon_slots(player);
-	for character in player.party:
-		spawn_a_character(character, y);
-		y += 1;
-		if y > 1:
-			break;
-	
-func spawn_summon_slots(player : Player) -> void:
-	for i in range(3):
-		spawn_summon_slot(i - 1, player.side);
-
-func spawn_summon_slot(y : int = 0, side : Player.Side = Player.Side.LEFT) -> void:
-	var slot : SummonSlot = System.Instance.load_child(System.Paths.Decorations.SUMMON_SLOT, background_layer);
-	var x_pos : int = get_summon_slot_x_pos(side, y);
-	var y_pos : int = get_summon_slot_y_pos(y);
-	slot.position = Vector2(x_pos, y_pos);
-
-func get_summon_slot_x_pos(side : Player.Side = Player.Side.LEFT, y : int = 0) -> int:
-	var x_pos : int = SLOT_EDGE_POS.x;
-	if y == 0:
-		x_pos = SLOT_MID_POS.x;
-	if side == Player.Side.LEFT:
-		x_pos = -x_pos;
-	return x_pos;
-
-func get_summon_slot_y_pos(y : int) -> int:
-	match y:
-		-1:
-			return -SLOT_EDGE_POS.y;
-		0:
-			return SLOT_MID_POS.y;
-		1:
-			return SLOT_EDGE_POS.y;
-	return 0;
-
-func spawn_a_character(character_data : CharacterData, y : int = 0) -> void:
-	var character : Character = System.Instance.load_child(System.Paths.Characters.BLUE_SLIME, characters_layer);
-	var x_pos : int = get_summon_slot_x_pos(character_data.player.side, y);
-	var y_pos : int = get_summon_slot_y_pos(y);
-	var stat_bar : StatBar = System.Instance.load_child(System.Paths.Informative.STAT_BAR, info_layer);
-	character.data = character_data;
-	character.position = Vector2(x_pos, y_pos);
-	stat_bar.position = character.position + STAT_BAR_MARGIN;
-	stat_bar.set_character_name(character.data.character_name);
-
-func init_menu() -> void:
-	var attack_button : AttackButton;
-	var margin : Vector2;
-	for i in range(4):
-		attack_button = System.Instance.load_child(System.Paths.Informative.ATTACK_BUTTON, info_layer);
-		margin = Vector2((-1 if i % 2 == 0 else 1) * ATTACK_BUTTONS_MARGIN.x, (-1 if i < 2 else 1) * ATTACK_BUTTONS_MARGIN.y);
-		attack_button.position = ATTACK_BUTTONS_POS + margin;
+func _process(delta : float) -> void:
+	if Input.is_action_just_pressed("take_screenshot"):
+		System.Json.take_screenshot(card, "", Vector2(1126, 1552), 90);
