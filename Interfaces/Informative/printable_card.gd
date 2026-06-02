@@ -5,6 +5,7 @@ const INNER_PANEL_COLOR_ROCK : String = "#398f5b";
 const INNER_PANEL_COLOR_PAPER : String = "#2499c8";
 const INNER_PANEL_COLOR_SCISSORS : String = "#f7793e";
 const INNER_PANEL_CORNER_RADIUS : int = 45;
+const CARD_ART_PATH : String = "res://Assets/Art/CardArt/%s - %s.png";
 
 var card_data : CardData;
 

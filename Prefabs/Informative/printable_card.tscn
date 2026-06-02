@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyl4rr58c2247" path="res://Scripts/Informative/printable_card.gd" id="1_1lhbp"]
 [ext_resource type="FontFile" uid="uid://c3vhrrc52vift" path="res://Assets/Fonts/Montserrat/Montserrat-Bold.ttf" id="1_yp7s5"]
+[ext_resource type="Texture2D" uid="uid://darqjwso1w37a" path="res://Assets/Art/CardArt/1 - Double Dope.png" id="2_c77un"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur83n"]
 bg_color = Color(0, 0, 0, 1)
@@ -14,6 +15,13 @@ corner_radius_top_left = 45
 corner_radius_top_right = 45
 corner_radius_bottom_right = 45
 corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jv4t"]
+bg_color = Color(0.008202021, 0.008202026, 0.008202015, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
 
 [node name="PrintableCard" type="Node2D" unique_id=595271416]
 script = ExtResource("1_1lhbp")
@@ -46,6 +54,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1kegx")
 
+[node name="ArtPanel" type="Panel" parent="." unique_id=1240912359]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -402.0
+offset_top = -417.0
+offset_right = 402.0
+offset_bottom = 617.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8jv4t")
+
+[node name="ArtSprite" type="Sprite2D" parent="." unique_id=1185961547]
+position = Vector2(0, 99.5)
+texture = ExtResource("2_c77un")
+
 [node name="NameLabel" type="Label" parent="." unique_id=48990033]
 anchors_preset = -1
 anchor_top = 0.5
@@ -68,9 +94,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -177.0
-offset_top = 445.5
+offset_top = 427.5
 offset_right = 177.0
-offset_bottom = 593.5
+offset_bottom = 575.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_yp7s5")
