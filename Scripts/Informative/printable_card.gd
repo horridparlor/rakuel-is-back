@@ -6,5 +6,30 @@ extends PrintableCard
 @onready var power_label : Label = $PowerLabel;
 
 func update_visuals() -> void:
-	name_label.text = card_data.card_name;
 	power_label.text = ("%s 000" if card_data.power > 0 else "%s") % str(card_data.power / 1000);
+	set_inner_panel();
+	update_name();
+
+func update_name() -> void:
+	var font_size : int = 104;
+	if card_data.card_name.length() > 12:
+		font_size -= (card_data.card_name.length() - 10) * 3.5;
+	name_label.text = card_data.card_name;
+	name_label.add_theme_font_size_override("font_size", font_size);
+
+func set_inner_panel() -> void:
+	var style : StyleBoxFlat = StyleBoxFlat.new();
+	var bg_color : String;
+	match card_data.card_type:
+		CardEnums.CardType.ROCK:
+			bg_color = INNER_PANEL_COLOR_ROCK;
+		CardEnums.CardType.PAPER:
+			bg_color = INNER_PANEL_COLOR_PAPER;
+		CardEnums.CardType.SCISSORS:
+			bg_color = INNER_PANEL_COLOR_SCISSORS;
+	style.corner_radius_bottom_left = INNER_PANEL_CORNER_RADIUS;
+	style.corner_radius_bottom_right = INNER_PANEL_CORNER_RADIUS;
+	style.corner_radius_top_left = INNER_PANEL_CORNER_RADIUS;
+	style.corner_radius_top_right = INNER_PANEL_CORNER_RADIUS;
+	style.bg_color = bg_color;
+	inner_layer.add_theme_stylebox_override("panel", style);

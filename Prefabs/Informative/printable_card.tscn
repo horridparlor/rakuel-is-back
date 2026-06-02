@@ -8,7 +8,7 @@ bg_color = Color(0, 0, 0, 1)
 border_color = Color(0.7049439, 0.12489865, 0.19689316, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kegx"]
-bg_color = Color(0.97612756, 0.51060355, 0.29726478, 1)
+bg_color = Color(0.22259477, 0.5590094, 0.35707703, 1)
 border_color = Color(0.7049439, 0.12489865, 0.19689316, 1)
 corner_radius_top_left = 45
 corner_radius_top_right = 45
@@ -67,10 +67,10 @@ anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -118.5
-offset_top = 450.0
-offset_right = 118.5
-offset_bottom = 549.0
+offset_left = -177.0
+offset_top = 445.5
+offset_right = 177.0
+offset_bottom = 593.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_yp7s5")
