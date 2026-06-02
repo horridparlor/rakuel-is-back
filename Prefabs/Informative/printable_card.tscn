@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyl4rr58c2247" path="res://Scripts/Informative/printable_card.gd" id="1_1lhbp"]
 [ext_resource type="FontFile" uid="uid://c3vhrrc52vift" path="res://Assets/Fonts/Montserrat/Montserrat-Bold.ttf" id="1_yp7s5"]
-[ext_resource type="Texture2D" uid="uid://darqjwso1w37a" path="res://Assets/Art/CardArt/1 - Double Dope.png" id="2_c77un"]
+[ext_resource type="Texture2D" uid="uid://bfkiagojg0unu" path="res://Assets/Art/CardArt/1 - Double Dope.png" id="2_c77un"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur83n"]
 bg_color = Color(0, 0, 0, 1)
@@ -69,7 +69,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8jv4t")
 
 [node name="ArtSprite" type="Sprite2D" parent="." unique_id=1185961547]
-position = Vector2(0, 99.5)
+position = Vector2(0, 100)
 texture = ExtResource("2_c77un")
 
 [node name="NameLabel" type="Label" parent="." unique_id=48990033]
