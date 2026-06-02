@@ -1,0 +1,9 @@
+{
+	"id": 60,
+	"name": "Copy Printer",
+	"type": "paper",
+	"power": 2000,
+	"keywords": [
+		"replicate"
+	]
+}

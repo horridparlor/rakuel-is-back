@@ -1,36 +1,11 @@
 [gd_scene format=3 uid="uid://5e4b5dmdtbo0"]
 
 [ext_resource type="Script" uid="uid://b87nh1nrl8y0f" path="res://Scripts/Scenes/gameplay.gd" id="1_ur83n"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur83n"]
-bg_color = Color(0.9419085, 0.6797315, 0.86390364, 1)
-border_width_left = 100
-border_width_top = 100
-border_width_right = 100
-border_width_bottom = 100
-border_color = Color(0.7049439, 0.12489865, 0.19689316, 1)
-corner_radius_top_left = 90
-corner_radius_top_right = 90
-corner_radius_bottom_right = 90
-corner_radius_bottom_left = 90
+[ext_resource type="PackedScene" uid="uid://bekf7iygo50gn" path="res://Prefabs/Informative/printable_card.tscn" id="2_1kegx"]
 
 [node name="Gameplay" type="Node2D" unique_id=254042811]
 script = ExtResource("1_ur83n")
 
 [node name="Background" type="Node2D" parent="." unique_id=207269527]
 
-[node name="CardLayer" type="Node2D" parent="." unique_id=126776291]
-
-[node name="Panel" type="Panel" parent="CardLayer" unique_id=563951602]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -563.0
-offset_top = -776.0
-offset_right = 563.0
-offset_bottom = 776.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ur83n")
+[node name="CardLayer" parent="." unique_id=595271416 instance=ExtResource("2_1kegx")]

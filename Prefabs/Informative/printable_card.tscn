@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bekf7iygo50gn"]
+
+[ext_resource type="Script" uid="uid://cyl4rr58c2247" path="res://Scripts/Informative/printable_card.gd" id="1_1lhbp"]
+[ext_resource type="FontFile" uid="uid://c3vhrrc52vift" path="res://Assets/Fonts/Montserrat/Montserrat-Bold.ttf" id="1_yp7s5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur83n"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.7049439, 0.12489865, 0.19689316, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kegx"]
+bg_color = Color(0.97612756, 0.51060355, 0.29726478, 1)
+border_color = Color(0.7049439, 0.12489865, 0.19689316, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[node name="PrintableCard" type="Node2D" unique_id=595271416]
+script = ExtResource("1_1lhbp")
+
+[node name="OuterLayer" type="Panel" parent="." unique_id=715277924]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -563.0
+offset_top = -776.0
+offset_right = 563.0
+offset_bottom = 776.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ur83n")
+
+[node name="InnerLayer" type="Panel" parent="." unique_id=1795091576]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -463.0
+offset_top = -676.0
+offset_right = 463.0
+offset_bottom = 676.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1kegx")
+
+[node name="NameLabel" type="Label" parent="." unique_id=48990033]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -412.5
+offset_top = -599.0
+offset_right = 412.5
+offset_bottom = -451.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_yp7s5")
+theme_override_font_sizes/font_size = 104
+text = "Double Dope"
+horizontal_alignment = 1
+
+[node name="PowerLabel" type="Label" parent="." unique_id=2129301870]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 450.0
+offset_right = 118.5
+offset_bottom = 549.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_yp7s5")
+theme_override_font_sizes/font_size = 120
+text = "9 000"
+horizontal_alignment = 1

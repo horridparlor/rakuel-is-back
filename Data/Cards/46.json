@@ -1,0 +1,9 @@
+{
+	"id": 46,
+	"name": "Rabbit",
+	"type": "rock",
+	"power": 2000,
+	"keywords": [
+		"replicate"
+	]
+}

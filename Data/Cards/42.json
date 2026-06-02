@@ -1,0 +1,9 @@
+{
+	"id": 42,
+	"name": "Harry",
+	"type": "rock",
+	"power": 2000,
+	"keywords": [
+		"wizard"
+	]
+}
