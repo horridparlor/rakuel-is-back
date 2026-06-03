@@ -8,6 +8,7 @@ const DEFAULT_DATA : Dictionary = {
 	"type": "Rock",
 	"power": 0,
 	"keywords": [],
+	"hide_reminder_text": [],
 	"created_at": "2026-12-31"
 }
 
@@ -17,6 +18,7 @@ var card_type : CardEnums.CardType;
 var card_type_name : String;
 var power : int;
 var keywords : Array;
+var hide_reminder_text : Dictionary;
 var has_title : bool;
 var created_at : String;
 var release_year : int;
@@ -33,6 +35,7 @@ func load_json() -> void:
 	card_type_name = CardEnums.TranslateCardType[card_type].to_lower();
 	power = data.power;
 	eat_keywords(data.keywords);
+	eat_hide_reminder_text(data.hide_reminder_text);
 	created_at = data.created_at;
 	release_year = int(created_at.substr(0, 4));
 
@@ -45,10 +48,15 @@ func eat_keywords(source : Array) -> void:
 			has_title = true;
 			break;
 
+func eat_hide_reminder_text(source : Array) -> void:
+	for keyword_string in source:
+		if CardEnums.TranslateKeyword.has(keyword_string):
+			hide_reminder_text[CardEnums.TranslateKeyword[keyword_string]] = null;
+
 func get_effects_text() -> String:
 	var effects_text : String;
 	for keyword in keywords:
 		if !effects_text.is_empty():
 			effects_text += "\n";
-		effects_text += CardEnums.get_keyword_text(keyword, card_type);
+		effects_text += CardEnums.get_keyword_text(keyword, card_type, hide_reminder_text.has(keyword));
 	return effects_text;

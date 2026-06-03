@@ -1,6 +1,7 @@
 extends Node
 
 const KEYWORD_STRING : String = "[center][b]%s [font_size=%s][i][%s][/i][/font_size][/b]\n[font_size=%s]%s[/font_size][/center]";
+const KEYWORD_REMINDLESS_STRING : String = "[center][b]%s [font_size=%s][i][%s][/i][/font_size][/b]";
 const TITLE_STRING : String = "[center][u][i]%s[/i][/u][/center]";
 
 enum CardType {
@@ -169,7 +170,7 @@ func is_title_keyword(keyword : Keyword) -> bool:
 func is_long_keyword(keyword : Keyword) -> bool:
 	return KeywordDescriptions[keyword].length() > 80;
 
-func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK) -> String:
+func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false) -> String:
 	var keyword_name : String = KeywordNames[keyword];
 	var tag_name : String = KeywordTagNames[KeywordTags[keyword]];
 	var description : String = enrich_keyword_description(KeywordDescriptions[keyword], card_type);
@@ -177,6 +178,12 @@ func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK) -
 	var font_size : int = 40 if description.length() > 64 else 48;
 	if is_title_keyword(keyword):
 		return TITLE_STRING % description;
+	if hide_reminder:
+		return KEYWORD_REMINDLESS_STRING % [
+			keyword_name,
+			title_font_size,
+			tag_name,
+		];
 	return KEYWORD_STRING % [
 		keyword_name,
 		title_font_size,
