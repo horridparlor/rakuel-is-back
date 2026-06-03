@@ -2,6 +2,7 @@ extends PrintableCard
 
 @onready var outer_layer : Panel = $OuterLayer;
 @onready var inner_layer : Panel = $InnerLayer;
+@onready var inner_pattern : Sprite2D = $InnerPattern;
 @onready var name_label : Label = $NameLabel;
 @onready var power_label : Label = $PowerLabel;
 @onready var art_sprite : Sprite2D = $ArtSprite;
@@ -14,7 +15,7 @@ extends PrintableCard
 
 func update_visuals() -> void:
 	update_power();
-	set_inner_panel();
+	update_inner_panel();
 	update_name();
 	update_art();
 	update_footer();
@@ -27,9 +28,11 @@ func update_name() -> void:
 	name_label.text = card_data.card_name;
 	name_label.add_theme_font_size_override("font_size", font_size);
 
-func set_inner_panel() -> void:
+func update_inner_panel() -> void:
 	var style : StyleBoxFlat = StyleBoxFlat.new();
 	var bg_color : String;
+	var inner_pattern_texture : Texture = load(INNER_PATTERN_PATH % card_data.card_type_name);
+	inner_pattern.texture = inner_pattern_texture;
 	match card_data.card_type:
 		CardEnums.CardType.ROCK:
 			bg_color = INNER_PANEL_COLOR_ROCK;
@@ -78,7 +81,7 @@ func set_power_panel() -> void:
 
 func update_footer() -> void:
 	var type_icon_x : int;
-	var type_icon_texture : Texture = load(TYPE_ICON_PATH % CardEnums.TranslateCardType[card_data.card_type].to_lower());
+	var type_icon_texture : Texture = load(TYPE_ICON_PATH % card_data.card_type_name);
 	match card_data.card_type:
 		CardEnums.CardType.ROCK:
 			type_icon_x = TYPE_ICON_ROCK_X;

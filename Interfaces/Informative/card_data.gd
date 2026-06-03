@@ -14,6 +14,7 @@ const DEFAULT_DATA : Dictionary = {
 var card_id : int;
 var card_name : String;
 var card_type : CardEnums.CardType;
+var card_type_name : String;
 var power : int;
 var keywords : Array;
 var has_title : bool;
@@ -29,6 +30,7 @@ func load_json() -> void:
 	data = System.Dictionaries.make_safe(data, DEFAULT_DATA);
 	card_name = data.name;
 	card_type = CardEnums.translate_type(data.type);
+	card_type_name = CardEnums.TranslateCardType[card_type].to_lower();
 	power = data.power;
 	eat_keywords(data.keywords);
 	created_at = data.created_at;

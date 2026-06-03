@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cyl4rr58c2247" path="res://Scripts/Informative/printable_card.gd" id="1_1lhbp"]
 [ext_resource type="FontFile" uid="uid://c3vhrrc52vift" path="res://Assets/Fonts/Montserrat/Montserrat-Bold.ttf" id="1_yp7s5"]
 [ext_resource type="Texture2D" uid="uid://cdb8w3dcko13l" path="res://Assets/Art/CardArt/23 - Wilde.png" id="2_c77un"]
+[ext_resource type="Texture2D" uid="uid://bla0fj02fqkqh" path="res://Assets/Art/CardPatterns/scissors_pattern.png" id="2_kuj2b"]
 [ext_resource type="FontFile" uid="uid://di4abqxuqvl4h" path="res://Assets/Fonts/Montserrat/Montserrat-ExtraBold.ttf" id="5_vbxm2"]
 [ext_resource type="FontFile" uid="uid://mmieoswfypmq" path="res://Assets/Fonts/Montserrat/Montserrat-LightItalic.ttf" id="6_vbxm2"]
 [ext_resource type="FontFile" uid="uid://3kkavvgbrq0y" path="res://Assets/Fonts/Montserrat/Montserrat-Medium.ttf" id="7_aixx3"]
@@ -71,6 +72,10 @@ offset_bottom = 676.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1kegx")
+
+[node name="InnerPattern" type="Sprite2D" parent="." unique_id=1176582998]
+self_modulate = Color(1, 1, 1, 0.2784314)
+texture = ExtResource("2_kuj2b")
 
 [node name="ArtPanel" type="Panel" parent="." unique_id=1240912359]
 anchors_preset = 8
@@ -201,7 +206,7 @@ text = "Rock"
 horizontal_alignment = 1
 
 [node name="TypeIcon" type="Sprite2D" parent="Footer" unique_id=977645337]
-position = Vector2(-68, 645)
+position = Vector2(-68, 646)
 texture = ExtResource("8_d2cgd")
 
 [node name="CreditLabel" type="Label" parent="Footer" unique_id=1838532332]
