@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://di4abqxuqvl4h" path="res://Assets/Fonts/Montserrat/Montserrat-ExtraBold.ttf" id="5_vbxm2"]
 [ext_resource type="FontFile" uid="uid://mmieoswfypmq" path="res://Assets/Fonts/Montserrat/Montserrat-LightItalic.ttf" id="6_vbxm2"]
 [ext_resource type="FontFile" uid="uid://3kkavvgbrq0y" path="res://Assets/Fonts/Montserrat/Montserrat-Medium.ttf" id="7_aixx3"]
+[ext_resource type="FontFile" uid="uid://blgr74hnsnmp3" path="res://Assets/Fonts/Montserrat/Montserrat-BoldItalic.ttf" id="7_d2cgd"]
 [ext_resource type="FontFile" uid="uid://d1yqah22sjqki" path="res://Assets/Fonts/Montserrat/Montserrat-Light.ttf" id="7_vbxm2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur83n"]
@@ -141,23 +142,31 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -380.0
-offset_top = 179.0
+offset_top = -324.0
 offset_right = 380.0
-offset_bottom = 546.0
+offset_bottom = 381.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/line_separation = 4
 theme_override_constants/outline_size = 12
+theme_override_constants/underline_alpha = 100
 theme_override_fonts/normal_font = ExtResource("7_aixx3")
 theme_override_fonts/bold_font = ExtResource("5_vbxm2")
 theme_override_fonts/bold_italics_font = ExtResource("6_vbxm2")
+theme_override_fonts/italics_font = ExtResource("7_d2cgd")
 theme_override_font_sizes/normal_font_size = 48
 theme_override_font_sizes/bold_font_size = 48
 theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 40
 bbcode_enabled = true
-text = "[center][b]Greed [i][Start of turn][/i][/b]
+text = "[center][u][i]Little sister of[/i][/u][/center]
+[center][b]Greed [i][Start of turn][/i][/b]
 Discard this card, your dice result is increased by 2.[/center]"
+vertical_alignment = 2
 
-[node name="IdLabel" type="Label" parent="." unique_id=1328083950]
+[node name="Footer" type="Node2D" parent="." unique_id=1269015050]
+
+[node name="IdLabel" type="Label" parent="Footer" unique_id=1328083950]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -173,7 +182,24 @@ theme_override_fonts/font = ExtResource("7_aixx3")
 theme_override_font_sizes/font_size = 24
 text = "#000001"
 
-[node name="CreditLabel" type="Label" parent="." unique_id=1838532332]
+[node name="TypeLabel" type="Label" parent="Footer" unique_id=550208676]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = 630.0
+offset_right = 164.0
+offset_bottom = 661.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_yp7s5")
+theme_override_font_sizes/font_size = 28
+text = "Scissors"
+horizontal_alignment = 1
+
+[node name="CreditLabel" type="Label" parent="Footer" unique_id=1838532332]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

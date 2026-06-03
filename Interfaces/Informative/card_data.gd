@@ -16,6 +16,7 @@ var card_name : String;
 var card_type : CardEnums.CardType;
 var power : int;
 var keywords : Array;
+var has_title : bool;
 var created_at : String;
 var release_year : int;
 
@@ -37,11 +38,15 @@ func eat_keywords(source : Array) -> void:
 	for keyword_string in source:
 		if CardEnums.TranslateKeyword.has(keyword_string):
 			keywords.append(CardEnums.TranslateKeyword[keyword_string]);
+	for keyword in keywords:
+		if CardEnums.is_title_keyword(keyword):
+			has_title = true;
+			break;
 
 func get_effects_text() -> String:
 	var effects_text : String;
 	for keyword in keywords:
 		if !effects_text.is_empty():
 			effects_text += "\n";
-		effects_text += CardEnums.get_keyword_text(keyword);
+		effects_text += CardEnums.get_keyword_text(keyword, card_type);
 	return effects_text;
