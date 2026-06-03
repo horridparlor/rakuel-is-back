@@ -8,6 +8,7 @@ extends PrintableCard
 @onready var power_panel : Panel = $PowerPanel;
 @onready var id_label : Label = $IdLabel;
 @onready var credit_label : Label = $CreditLabel;
+@onready var effects_label : RichTextLabel = $EffectsLabel;
 
 func update_visuals() -> void:
 	update_power();
@@ -15,6 +16,7 @@ func update_visuals() -> void:
 	update_name();
 	update_art();
 	update_footer();
+	update_effects();
 
 func update_name() -> void:
 	var font_size : int = 104;
@@ -75,3 +77,6 @@ func set_power_panel() -> void:
 func update_footer() -> void:
 	id_label.text = ID_LABEL_TEXT % str(card_data.card_id).pad_zeros(ID_LABEL_LENGTH);
 	credit_label.text = CREDIT_LABEL_TEXT % card_data.release_year;
+
+func update_effects() -> void:
+	effects_label.text = card_data.get_effects_text();

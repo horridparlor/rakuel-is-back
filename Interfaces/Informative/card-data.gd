@@ -29,5 +29,19 @@ func load_json() -> void:
 	card_name = data.name;
 	card_type = CardEnums.translate_type(data.type);
 	power = data.power;
+	eat_keywords(data.keywords);
 	created_at = data.created_at;
 	release_year = int(created_at.substr(0, 4));
+
+func eat_keywords(source : Array) -> void:
+	for keyword_string in source:
+		if CardEnums.TranslateKeyword.has(keyword_string):
+			keywords.append(CardEnums.TranslateKeyword[keyword_string]);
+
+func get_effects_text() -> String:
+	var effects_text : String;
+	for keyword in keywords:
+		if !effects_text.is_empty():
+			effects_text += "\n";
+		effects_text += CardEnums.get_keyword_text(keyword);
+	return effects_text;
