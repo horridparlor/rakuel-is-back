@@ -7,7 +7,8 @@ const DEFAULT_DATA : Dictionary = {
 	"name": "Name Missing",
 	"type": "Rock",
 	"power": 0,
-	"keywords": []
+	"keywords": [],
+	"created_at": "2026-12-31"
 }
 
 var card_id : int;
@@ -15,6 +16,8 @@ var card_name : String;
 var card_type : CardEnums.CardType;
 var power : int;
 var keywords : Array;
+var created_at : String;
+var release_year : int;
 
 func _init(id_ : int) -> void:
 	card_id = id_;
@@ -26,3 +29,5 @@ func load_json() -> void:
 	card_name = data.name;
 	card_type = CardEnums.translate_type(data.type);
 	power = data.power;
+	created_at = data.created_at;
+	release_year = int(created_at.substr(0, 4));

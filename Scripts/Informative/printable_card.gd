@@ -6,12 +6,15 @@ extends PrintableCard
 @onready var power_label : Label = $PowerLabel;
 @onready var art_sprite : Sprite2D = $ArtSprite;
 @onready var power_panel : Panel = $PowerPanel;
+@onready var id_label : Label = $IdLabel;
+@onready var credit_label : Label = $CreditLabel;
 
 func update_visuals() -> void:
 	update_power();
 	set_inner_panel();
 	update_name();
 	update_art();
+	update_footer();
 
 func update_name() -> void:
 	var font_size : int = 104;
@@ -68,3 +71,7 @@ func set_power_panel() -> void:
 	System.Styles.set_all_borders(style, POWER_PANEL_BORDER_WIDTH);
 	style.border_color = Color.WHITE;
 	power_panel.add_theme_stylebox_override("panel", style);
+
+func update_footer() -> void:
+	id_label.text = ID_LABEL_TEXT % str(card_data.card_id).pad_zeros(ID_LABEL_LENGTH);
+	credit_label.text = CREDIT_LABEL_TEXT % card_data.release_year;

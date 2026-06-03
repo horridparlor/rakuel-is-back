@@ -3,5 +3,6 @@
 	"name": "5 Pennies",
 	"type": "rock",
 	"power": 9000,
-	"keywords": []
+	"keywords": [],
+	"created_at": "2026-06-02"
 }

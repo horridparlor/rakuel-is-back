@@ -17,6 +17,9 @@ const POWER_PANEL_THOUSAND_WIDTH : int = 470;
 const POWER_PANEL_TEN_THOUSAND_WIDTH : int = 500;
 
 const CARD_ART_PATH : String = "res://Assets/Art/CardArt/%s - %s.png";
+const ID_LABEL_TEXT : String = "#%s";
+const CREDIT_LABEL_TEXT : String = "©%s Eero Laine";
+const ID_LABEL_LENGTH : int = 6;
 
 var card_data : CardData;
 
