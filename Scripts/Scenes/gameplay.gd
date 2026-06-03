@@ -8,7 +8,9 @@ func _ready() -> void:
 
 func _process(delta : float) -> void:
 	if Input.is_action_just_pressed("take_screenshot"):
-		System.Json.take_screenshot(card, "", Vector2(1126, 1552));
+		System.Json.take_screenshot(card, "", PrintableCard.OUTER_LAYER_PRINT_SCALE if Config.PRINT_MODE \
+		else PrintableCard.OUTER_LAYER_BASE_SCALE, \
+		0 if Config.PRINT_MODE else 75);
 	if Input.is_action_just_pressed("next_card"):
 		load_next_card();
 	if Input.is_action_just_pressed("previous_card"):

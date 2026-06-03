@@ -7,11 +7,15 @@ extends PrintableCard
 @onready var power_label : Label = $PowerLabel;
 @onready var art_sprite : Sprite2D = $ArtSprite;
 @onready var power_panel : Panel = $PowerPanel;
+@onready var power_pattern : Sprite2D = $PowerPattern;
 @onready var id_label : Label = $Footer/IdLabel;
 @onready var type_icon : Sprite2D = $Footer/TypeIcon;
 @onready var type_label : Label = $Footer/TypeLabel;
 @onready var credit_label : Label = $Footer/CreditLabel;
 @onready var effects_label : RichTextLabel = $EffectsLabel;
+
+func _ready() -> void:
+	update_outer_layer();
 
 func update_visuals() -> void:
 	update_power();
@@ -57,10 +61,16 @@ func set_power_panel() -> void:
 	var bg_color : String;
 	var corner_radius : int = POWER_PANEL_CORNER_RADIUS;
 	var width : int = POWER_PANEL_THOUSAND_WIDTH;
+	var power_pattern_texture : Texture;
+	var power_pattern_size_name : String = "normal";
 	if card_data.power == 0:
 		width = POWER_PANEL_ZERO_WIDTH;
+		power_pattern_size_name = "short";
 	elif card_data.power >= 10000:
-		width = POWER_PANEL_TEN_THOUSAND_WIDTH
+		width = POWER_PANEL_TEN_THOUSAND_WIDTH;
+		power_pattern_size_name = "long";
+	power_pattern_texture = load(POWER_PATTERN_PATH % [card_data.card_type_name, power_pattern_size_name]);
+	power_pattern.texture = power_pattern_texture;
 	power_panel.size.x = width;
 	power_panel.position.x = -width / 2;
 	match card_data.card_type:
@@ -98,3 +108,14 @@ func update_footer() -> void:
 
 func update_effects() -> void:
 	effects_label.text = card_data.get_effects_text();
+
+func update_outer_layer() -> void:
+	var style : StyleBoxFlat = StyleBoxFlat.new();
+	style.bg_color = OUTER_LAYER_COLOR;
+	if Config.PRINT_MODE:
+		outer_layer.size = OUTER_LAYER_PRINT_SCALE;
+	else:
+		outer_layer.size = OUTER_LAYER_BASE_SCALE;
+		System.Styles.set_all_corners(style, OUTER_LAYER_CORNER_RADIUS);
+	outer_layer.position = -outer_layer.size / 2;
+	outer_layer.add_theme_stylebox_override("panel", style);

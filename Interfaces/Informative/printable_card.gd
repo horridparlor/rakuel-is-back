@@ -1,6 +1,11 @@
 extends Node2D
 class_name PrintableCard
 
+const OUTER_LAYER_COLOR : String = "#030303";
+const OUTER_LAYER_PRINT_SCALE : Vector2 = Vector2(1126, 1552);
+const OUTER_LAYER_BASE_SCALE : Vector2 = Vector2(986, 1412);
+const OUTER_LAYER_CORNER_RADIUS : int = 75;
+
 const INNER_PANEL_COLOR_ROCK : String = "#398f5b";
 const INNER_PANEL_COLOR_PAPER : String = "#2499c8";
 const INNER_PANEL_COLOR_SCISSORS : String = "#f7793e";
@@ -11,6 +16,7 @@ const TYPE_ICON_PAPER_X : int = -75;
 const TYPE_ICON_SCISSORS_X : int = -85;
 const TYPE_ICON_PATH : String = "res://Assets/Art/TypeIcons/%s_40x40.png";
 const INNER_PATTERN_PATH : String = "res://Assets/Art/CardPatterns/%s_pattern.png";
+const POWER_PATTERN_PATH : String = "res://Assets/Art/CardPatterns/PowerPatterns/%s_power_%s_pattern.png";
 
 const POWER_PANEL_COLOR_ROCK : String = "#1e5b46";
 const POWER_PANEL_COLOR_PAPER : String = "#14519d";

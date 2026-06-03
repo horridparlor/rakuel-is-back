@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://c3vhrrc52vift" path="res://Assets/Fonts/Montserrat/Montserrat-Bold.ttf" id="1_yp7s5"]
 [ext_resource type="Texture2D" uid="uid://cdb8w3dcko13l" path="res://Assets/Art/CardArt/23 - Wilde.png" id="2_c77un"]
 [ext_resource type="Texture2D" uid="uid://bla0fj02fqkqh" path="res://Assets/Art/CardPatterns/scissors_pattern.png" id="2_kuj2b"]
+[ext_resource type="Texture2D" uid="uid://dmqm3ewpubar4" path="res://Assets/Art/CardPatterns/PowerPatterns/paper_power_normal_pattern.png" id="5_mnts7"]
 [ext_resource type="FontFile" uid="uid://di4abqxuqvl4h" path="res://Assets/Fonts/Montserrat/Montserrat-ExtraBold.ttf" id="5_vbxm2"]
 [ext_resource type="FontFile" uid="uid://mmieoswfypmq" path="res://Assets/Fonts/Montserrat/Montserrat-LightItalic.ttf" id="6_vbxm2"]
 [ext_resource type="FontFile" uid="uid://3kkavvgbrq0y" path="res://Assets/Fonts/Montserrat/Montserrat-Medium.ttf" id="7_aixx3"]
@@ -12,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bnj02172od26s" path="res://Assets/Art/TypeIcons/rock_40x40.png" id="8_d2cgd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur83n"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.011087579, 0.011087578, 0.01108758, 1)
 border_color = Color(0.7049439, 0.12489865, 0.19689316, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kegx"]
@@ -74,7 +75,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1kegx")
 
 [node name="InnerPattern" type="Sprite2D" parent="." unique_id=1176582998]
-self_modulate = Color(1, 1, 1, 0.2784314)
 texture = ExtResource("2_kuj2b")
 
 [node name="ArtPanel" type="Panel" parent="." unique_id=1240912359]
@@ -124,6 +124,10 @@ offset_bottom = 580.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c77un")
+
+[node name="PowerPattern" type="Sprite2D" parent="." unique_id=80009230]
+position = Vector2(0, 496)
+texture = ExtResource("5_mnts7")
 
 [node name="PowerLabel" type="Label" parent="." unique_id=2129301870]
 anchors_preset = -1
