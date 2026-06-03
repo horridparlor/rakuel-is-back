@@ -167,6 +167,9 @@ const KeywordTags : Dictionary = {
 func is_title_keyword(keyword : Keyword) -> bool:
 	return KeywordTags[keyword] == KeywordTag.TITLE;
 
+func is_keyword_grave_effect(keyword : Keyword) -> bool:
+	return KeywordTags[keyword] == KeywordTag.FROM_GRAVE;
+
 func is_long_keyword(keyword : Keyword) -> bool:
 	return KeywordDescriptions[keyword].length() > 80;
 

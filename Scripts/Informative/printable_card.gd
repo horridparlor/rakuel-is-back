@@ -13,6 +13,7 @@ extends PrintableCard
 @onready var type_label : Label = $Footer/TypeLabel;
 @onready var credit_label : Label = $Footer/CreditLabel;
 @onready var effects_label : RichTextLabel = $EffectsLabel;
+@onready var gravestone_icon : Sprite2D = $GravestoneIcon;
 
 func _ready() -> void:
 	update_outer_layer();
@@ -108,6 +109,7 @@ func update_footer() -> void:
 
 func update_effects() -> void:
 	effects_label.text = card_data.get_effects_text();
+	gravestone_icon.visible = card_data.has_grave_effect;
 
 func update_outer_layer() -> void:
 	var style : StyleBoxFlat = StyleBoxFlat.new();

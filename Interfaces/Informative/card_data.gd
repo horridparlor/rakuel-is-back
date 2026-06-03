@@ -20,6 +20,7 @@ var power : int;
 var keywords : Array;
 var hide_reminder_text : Dictionary;
 var has_title : bool;
+var has_grave_effect : bool;
 var created_at : String;
 var release_year : int;
 
@@ -46,7 +47,8 @@ func eat_keywords(source : Array) -> void:
 	for keyword in keywords:
 		if CardEnums.is_title_keyword(keyword):
 			has_title = true;
-			break;
+		if CardEnums.is_keyword_grave_effect(keyword):
+			has_grave_effect = true;
 
 func eat_hide_reminder_text(source : Array) -> void:
 	for keyword_string in source:
