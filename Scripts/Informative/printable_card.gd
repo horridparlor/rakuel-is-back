@@ -7,6 +7,7 @@ extends PrintableCard
 @onready var art_sprite : Sprite2D = $ArtSprite;
 @onready var power_panel : Panel = $PowerPanel;
 @onready var id_label : Label = $Footer/IdLabel;
+@onready var type_icon : Sprite2D = $Footer/TypeIcon;
 @onready var type_label : Label = $Footer/TypeLabel;
 @onready var credit_label : Label = $Footer/CreditLabel;
 @onready var effects_label : RichTextLabel = $EffectsLabel;
@@ -76,9 +77,21 @@ func set_power_panel() -> void:
 	power_panel.add_theme_stylebox_override("panel", style);
 
 func update_footer() -> void:
+	var type_icon_x : int;
+	var type_icon_texture : Texture = load(TYPE_ICON_PATH % CardEnums.TranslateCardType[card_data.card_type].to_lower());
+	match card_data.card_type:
+		CardEnums.CardType.ROCK:
+			type_icon_x = TYPE_ICON_ROCK_X;
+		CardEnums.CardType.PAPER:
+			type_icon_x = TYPE_ICON_PAPER_X;
+		CardEnums.CardType.SCISSORS:
+			type_icon_x = TYPE_ICON_SCISSORS_X;
+	type_icon.position.x = type_icon_x;
+	type_icon.texture = type_icon_texture;
 	id_label.text = ID_LABEL_TEXT % str(card_data.card_id).pad_zeros(ID_LABEL_LENGTH);
 	type_label.text = CardEnums.TranslateCardType[card_data.card_type];
 	credit_label.text = CREDIT_LABEL_TEXT % card_data.release_year;
+	
 
 func update_effects() -> void:
 	effects_label.text = card_data.get_effects_text();

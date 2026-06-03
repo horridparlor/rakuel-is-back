@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://3kkavvgbrq0y" path="res://Assets/Fonts/Montserrat/Montserrat-Medium.ttf" id="7_aixx3"]
 [ext_resource type="FontFile" uid="uid://blgr74hnsnmp3" path="res://Assets/Fonts/Montserrat/Montserrat-BoldItalic.ttf" id="7_d2cgd"]
 [ext_resource type="FontFile" uid="uid://d1yqah22sjqki" path="res://Assets/Fonts/Montserrat/Montserrat-Light.ttf" id="7_vbxm2"]
+[ext_resource type="Texture2D" uid="uid://bnj02172od26s" path="res://Assets/Art/TypeIcons/rock_40x40.png" id="8_d2cgd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur83n"]
 bg_color = Color(0, 0, 0, 1)
@@ -196,8 +197,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_yp7s5")
 theme_override_font_sizes/font_size = 28
-text = "Scissors"
+text = "Rock"
 horizontal_alignment = 1
+
+[node name="TypeIcon" type="Sprite2D" parent="Footer" unique_id=977645337]
+position = Vector2(-68, 645)
+texture = ExtResource("8_d2cgd")
 
 [node name="CreditLabel" type="Label" parent="Footer" unique_id=1838532332]
 anchors_preset = 8

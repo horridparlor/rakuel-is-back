@@ -6,6 +6,11 @@ const INNER_PANEL_COLOR_PAPER : String = "#2499c8";
 const INNER_PANEL_COLOR_SCISSORS : String = "#f7793e";
 const INNER_PANEL_CORNER_RADIUS : int = 45;
 
+const TYPE_ICON_ROCK_X : int = -68;
+const TYPE_ICON_PAPER_X : int = -75;
+const TYPE_ICON_SCISSORS_X : int = -85;
+const TYPE_ICON_PATH : String = "res://Assets/Art/TypeIcons/%s_40x40.png";
+
 const POWER_PANEL_COLOR_ROCK : String = "#1e5b46";
 const POWER_PANEL_COLOR_PAPER : String = "#14519d";
 const POWER_PANEL_COLOR_SCISSORS : String = "#bf3c29";
