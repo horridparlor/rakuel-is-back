@@ -48,7 +48,7 @@ enum Keyword {
 enum KeywordTag {
 	DECK_BUILDING,
 	FROM_GRAVE,
-	ON_YOUR_TURN,
+	FROM_HAND,
 	OPPONENT_PASSES,
 	START_OF_TURN,
 	STATIC,
@@ -60,7 +60,7 @@ enum KeywordTag {
 const KeywordTagNames : Dictionary = {
 	KeywordTag.DECK_BUILDING: "Deck building",
 	KeywordTag.FROM_GRAVE: "From grave",
-	KeywordTag.ON_YOUR_TURN: "On your turn",
+	KeywordTag.FROM_HAND: "From hand",
 	KeywordTag.OPPONENT_PASSES: "Opponent passes",
 	KeywordTag.START_OF_TURN: "Start of turn",
 	KeywordTag.STATIC: "Static",
@@ -146,7 +146,7 @@ const KeywordDescriptions : Dictionary = {
 }
 
 const KeywordTags : Dictionary = {
-	Keyword.COMMUNISM: KeywordTag.ON_YOUR_TURN,
+	Keyword.COMMUNISM: KeywordTag.FROM_HAND,
 	Keyword.COUGAR: KeywordTag.WHEN_SUPPORTING,
 	Keyword.CULTISM: KeywordTag.FROM_GRAVE,
 	Keyword.DEMOCRACY: KeywordTag.STATIC,
