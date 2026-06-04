@@ -127,9 +127,9 @@ const TranslateKeyword : Dictionary = {
 }
 
 const KeywordDescriptions : Dictionary = {
-	Keyword.COMMUNISM: "Replace your bottom price card with this card. While there, you can draw from opponent’s deck.",
+	Keyword.COMMUNISM: "Replace your bottom prize card with this card. While there, you can draw from opponent’s deck.",
 	Keyword.COUGAR: "...a card with 5 000 or less power, draw a card.",
-	Keyword.CULTISM: "You can reshuffle all 7 little sisters, then draw a price card.",
+	Keyword.CULTISM: "You can reshuffle all 7 little sisters, then draw a prize card.",
 	Keyword.DEMOCRACY: "Gains the combined power of all %SAME_TYPES in your grave.",
 	Keyword.DICTATORSHIP: "Any card can devolve into this.",
 	Keyword.DIVINE: "Defeats any fade-down card.",
