@@ -3,5 +3,8 @@
 	"name": "Pitch-Black Ooze",
 	"type": "rock",
 	"power": 3000,
-	"keywords": []
+	"keywords": [
+		"slime"
+	],
+	"created_at": "2026-06-05"
 }

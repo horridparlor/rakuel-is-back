@@ -108,6 +108,7 @@ func update_footer() -> void:
 	
 
 func update_effects() -> void:
+	effects_label.position.y = -304 if (card_data.keywords.size() == 1 and card_data.has_title) else -324;
 	effects_label.text = card_data.get_effects_text();
 	gravestone_icon.visible = card_data.has_grave_effect;
 

@@ -2,7 +2,7 @@ extends Node
 
 const KEYWORD_STRING : String = "[center][b]%s [font_size=%s][i][%s][/i][/font_size][/b]\n[font_size=%s]%s[/font_size][/center]";
 const KEYWORD_REMINDLESS_STRING : String = "[center][b]%s [font_size=%s][i][%s][/i][/font_size][/b]";
-const TITLE_STRING : String = "[center][u][i]%s[/i][/u][/center]";
+const TITLE_STRING : String = "[center][font_size=%s][u][i]%s[/i][/u][/font_size][/center]";
 
 enum CardType {
 	ROCK,
@@ -41,6 +41,7 @@ enum Keyword {
 	MONARCHY,
 	REPLICATE,
 	SISTER_VIRUS,
+	SLIME,
 	WANDERRET,
 	WIZARD
 }
@@ -84,6 +85,7 @@ const KeywordNames : Dictionary = {
 	Keyword.NATURAL_SELECTION: "Natural Selection",
 	Keyword.REPLICATE: "Replicate",
 	Keyword.SISTER_VIRUS: "Sister Virus",
+	Keyword.SLIME: "Slime",
 	Keyword.WANDERRET: "Wanderret",
 	Keyword.WIZARD: "Wizard"
 }
@@ -103,6 +105,7 @@ const KeywordCodes : Dictionary = {
 	Keyword.NATURAL_SELECTION: "natural-selection",
 	Keyword.REPLICATE: "replicate",
 	Keyword.SISTER_VIRUS: "sister-virus",
+	Keyword.SLIME: "slime",
 	Keyword.WANDERRET: "wanderret",
 	Keyword.WIZARD: "wizard"
 }
@@ -122,6 +125,7 @@ const TranslateKeyword : Dictionary = {
 	"natural-selection": Keyword.NATURAL_SELECTION,
 	"replicate": Keyword.REPLICATE,
 	"sister-virus": Keyword.SISTER_VIRUS,
+	"slime": Keyword.SLIME,
 	"wanderret": Keyword.WANDERRET,
 	"wizard": Keyword.WIZARD
 }
@@ -141,6 +145,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.NATURAL_SELECTION: "Discard this card. This turn, each player can only play one more card. Those cards are played face-down.",
 	Keyword.REPLICATE: "Unlimited copies of this card.",
 	Keyword.SISTER_VIRUS: "This card may evolve into any little sister in your grave.",
+	Keyword.SLIME: "Slime",
 	Keyword.WANDERRET: "...a wanderret, draw a card.",
 	Keyword.WIZARD: "Can evolve into any card, but play that card face-down."
 }
@@ -160,6 +165,7 @@ const KeywordTags : Dictionary = {
 	Keyword.NATURAL_SELECTION: KeywordTag.START_OF_TURN,
 	Keyword.REPLICATE: KeywordTag.DECK_BUILDING,
 	Keyword.SISTER_VIRUS: KeywordTag.STATIC,
+	Keyword.SLIME: KeywordTag.TITLE,
 	Keyword.WANDERRET: KeywordTag.WHEN_SUPPORTING,
 	Keyword.WIZARD: KeywordTag.STATIC,
 }
@@ -173,14 +179,15 @@ func is_keyword_grave_effect(keyword : Keyword) -> bool:
 func is_long_keyword(keyword : Keyword) -> bool:
 	return KeywordDescriptions[keyword].length() > 80;
 
-func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false) -> String:
+func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false, is_only_keyword : bool = false) -> String:
 	var keyword_name : String = KeywordNames[keyword];
 	var tag_name : String = KeywordTagNames[KeywordTags[keyword]];
 	var description : String = enrich_keyword_description(KeywordDescriptions[keyword], card_type);
 	var title_font_size : int = 44 if keyword_name.length() + tag_name.length() > 28 else 48;
 	var font_size : int = 40 if description.length() > 64 else 48;
 	if is_title_keyword(keyword):
-		return TITLE_STRING % description;
+		font_size = 48 if is_only_keyword else 40;
+		return TITLE_STRING % [font_size, description];
 	if hide_reminder:
 		return KEYWORD_REMINDLESS_STRING % [
 			keyword_name,

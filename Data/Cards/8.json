@@ -3,5 +3,8 @@
 	"name": "Spider Eggs",
 	"type": "scissors",
 	"power": 6000,
-	"keywords": []
+	"keywords": [
+		"slime"
+	],
+	"created_at": "2026-06-07"
 }

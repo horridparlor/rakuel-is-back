@@ -60,5 +60,5 @@ func get_effects_text() -> String:
 	for keyword in keywords:
 		if !effects_text.is_empty():
 			effects_text += "\n";
-		effects_text += CardEnums.get_keyword_text(keyword, card_type, hide_reminder_text.has(keyword));
+		effects_text += CardEnums.get_keyword_text(keyword, card_type, hide_reminder_text.has(keyword), keywords.size() == 1);
 	return effects_text;
