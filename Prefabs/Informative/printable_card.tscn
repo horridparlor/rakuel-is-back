@@ -4,7 +4,6 @@
 [ext_resource type="FontFile" uid="uid://c3vhrrc52vift" path="res://Assets/Fonts/Montserrat/Montserrat-Bold.ttf" id="1_yp7s5"]
 [ext_resource type="Texture2D" uid="uid://cdb8w3dcko13l" path="res://Assets/Art/CardArt/23 - Wilde.png" id="2_c77un"]
 [ext_resource type="Texture2D" uid="uid://bla0fj02fqkqh" path="res://Assets/Art/CardPatterns/scissors_pattern.png" id="2_kuj2b"]
-[ext_resource type="FontFile" uid="uid://d2quytvht0dbx" path="res://Assets/Fonts/Montserrat/Montserrat-SemiBoldItalic.ttf" id="5_20m0b"]
 [ext_resource type="Texture2D" uid="uid://dmqm3ewpubar4" path="res://Assets/Art/CardPatterns/PowerPatterns/paper_power_normal_pattern.png" id="5_mnts7"]
 [ext_resource type="FontFile" uid="uid://di4abqxuqvl4h" path="res://Assets/Fonts/Montserrat/Montserrat-ExtraBold.ttf" id="5_vbxm2"]
 [ext_resource type="FontFile" uid="uid://mmieoswfypmq" path="res://Assets/Fonts/Montserrat/Montserrat-LightItalic.ttf" id="6_vbxm2"]
@@ -109,7 +108,7 @@ offset_bottom = -311.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_yp7s5")
-theme_override_fonts/italics_font = ExtResource("5_20m0b")
+theme_override_fonts/italics_font = ExtResource("7_d2cgd")
 theme_override_font_sizes/normal_font_size = 104
 theme_override_font_sizes/italics_font_size = 104
 bbcode_enabled = true
