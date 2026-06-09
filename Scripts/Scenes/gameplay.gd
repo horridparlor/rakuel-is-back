@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _process(delta : float) -> void:
 	if Input.is_action_just_pressed("take_screenshot"):
-		System.Json.take_screenshot(card, "%s - %s" % [str(card.card_data.card_id), card.card_data.card_name], \
+		System.Json.take_screenshot(card, "%s - %s" % [str(card.card_data.card_id), card.get_name_path()], \
 		PrintableCard.OUTER_LAYER_PRINT_SCALE if Config.PRINT_MODE \
 		else PrintableCard.OUTER_LAYER_BASE_SCALE, \
 		0 if Config.PRINT_MODE else 75);

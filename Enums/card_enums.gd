@@ -1,8 +1,9 @@
 extends Node
 
-const KEYWORD_STRING : String = "[center][b]%s [font_size=%s][i][%s][/i][/font_size][/b]\n[font_size=%s]%s[/font_size][/center]";
-const KEYWORD_REMINDLESS_STRING : String = "[center][b]%s [font_size=%s][i][%s][/i][/font_size][/b]";
+const KEYWORD_STRING : String = "[center]%s [font_size=%s][i][%s][/i][/font_size][/b]\n[font_size=%s]%s[/font_size][/center]";
+const KEYWORD_REMINDLESS_STRING : String = "[center]%s [font_size=%s][i][%s][/i][/font_size][/b]";
 const TITLE_STRING : String = "[center][font_size=%s][u][i]%s[/i][/u][/font_size][/center]";
+const KEYWORD_DASHED_NAME_STRING : String = "[font_size=%s][i]%s[/i][/font_size][b]%s";
 
 enum CardType {
 	ROCK,
@@ -55,7 +56,7 @@ enum KeywordTag {
 	START_OF_TURN,
 	STATIC,
 	TITLE,
-	WHEN_EVOLVED,
+	WHEN_EVOLVES,
 	WHEN_PLAYED,
 	WHEN_SUPPORTING
 }
@@ -68,7 +69,7 @@ const KeywordTagNames : Dictionary = {
 	KeywordTag.START_OF_TURN: "Start of turn",
 	KeywordTag.STATIC: "Static",
 	KeywordTag.TITLE: "Title",
-	KeywordTag.WHEN_EVOLVED: "When evolved",
+	KeywordTag.WHEN_EVOLVES: "When evolves",
 	KeywordTag.WHEN_PLAYED: "When played",
 	KeywordTag.WHEN_SUPPORTING: "When supporting"
 }
@@ -164,7 +165,7 @@ const KeywordTags : Dictionary = {
 	Keyword.DEMOCRACY: KeywordTag.STATIC,
 	Keyword.DICTATORSHIP: KeywordTag.STATIC,
 	Keyword.DIVINE: KeywordTag.STATIC,
-	Keyword.ELDER_SLIME: KeywordTag.WHEN_EVOLVED,
+	Keyword.ELDER_SLIME: KeywordTag.WHEN_EVOLVES,
 	Keyword.FACISM: KeywordTag.OPPONENT_PASSES,
 	Keyword.GREED: KeywordTag.START_OF_TURN,
 	Keyword.LITTLE_SISTER: KeywordTag.TITLE,
@@ -193,17 +194,21 @@ func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, h
 	var description : String = enrich_keyword_description(KeywordDescriptions[keyword], card_type);
 	var title_font_size : int = 44 if keyword_name.length() + tag_name.length() > 28 else 48;
 	var font_size : int = 40 if description.length() > 64 else 48;
+	var formatted_name : String = "[b]%s" % keyword_name;
+	if "-" in keyword_name:
+		var dash_idx = keyword_name.find("-");
+		formatted_name = KEYWORD_DASHED_NAME_STRING % [title_font_size, keyword_name.substr(0, dash_idx + 1), keyword_name.substr(dash_idx + 1)];
 	if is_title_keyword(keyword):
 		font_size = 48 if is_only_keyword else 40;
 		return TITLE_STRING % [font_size, description];
 	if hide_reminder:
 		return KEYWORD_REMINDLESS_STRING % [
-			keyword_name,
+			formatted_name,
 			title_font_size,
 			tag_name,
 		];
 	return KEYWORD_STRING % [
-		keyword_name,
+		formatted_name,
 		title_font_size,
 		tag_name,
 		font_size,

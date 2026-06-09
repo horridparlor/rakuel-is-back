@@ -41,3 +41,9 @@ func load_card_data(card_id : int):
 
 func update_visuals() -> void:
 	pass;
+
+func get_name_path() -> String:
+	var name_path : String = card_data.card_name;
+	if name_path.begins_with("The "):
+		name_path = name_path.substr(4);
+	return name_path;

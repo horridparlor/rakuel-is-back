@@ -68,12 +68,6 @@ func update_art() -> void:
 	var texture : Resource = load(CARD_ART_PATH % [card_data.card_id, get_name_path()]);
 	art_sprite.texture = texture;
 
-func get_name_path() -> String:
-	var name_path : String = card_data.card_name;
-	if name_path.begins_with("The "):
-		name_path = name_path.substr(4);
-	return name_path;
-
 func update_power() -> void:
 	power_label.text = ("%s 000" if card_data.power > 0 else "%s") % str(card_data.power / 1000);
 	set_power_panel();
