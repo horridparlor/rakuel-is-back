@@ -33,6 +33,7 @@ enum Keyword {
 	DEMOCRACY,
 	DICTATORSHIP,
 	DIVINE,
+	ELDER_SLIME,
 	FACISM,
 	GREED,
 	LITTLE_SISTER,
@@ -54,6 +55,7 @@ enum KeywordTag {
 	START_OF_TURN,
 	STATIC,
 	TITLE,
+	WHEN_EVOLVED,
 	WHEN_PLAYED,
 	WHEN_SUPPORTING
 }
@@ -66,6 +68,7 @@ const KeywordTagNames : Dictionary = {
 	KeywordTag.START_OF_TURN: "Start of turn",
 	KeywordTag.STATIC: "Static",
 	KeywordTag.TITLE: "Title",
+	KeywordTag.WHEN_EVOLVED: "When evolved",
 	KeywordTag.WHEN_PLAYED: "When played",
 	KeywordTag.WHEN_SUPPORTING: "When supporting"
 }
@@ -77,6 +80,7 @@ const KeywordNames : Dictionary = {
 	Keyword.DEMOCRACY: "Democracy",
 	Keyword.DICTATORSHIP: "Dictatorship",
 	Keyword.DIVINE: "Divine",
+	Keyword.ELDER_SLIME: "Elder-Slime",
 	Keyword.FACISM: "Facism",
 	Keyword.GREED: "Greed",
 	Keyword.LITTLE_SISTER: "Little Sister",
@@ -97,6 +101,7 @@ const KeywordCodes : Dictionary = {
 	Keyword.DEMOCRACY: "democracy",
 	Keyword.DICTATORSHIP: "dictatorship",
 	Keyword.DIVINE: "divine",
+	Keyword.ELDER_SLIME: "elder-slime",
 	Keyword.FACISM: "facism",
 	Keyword.GREED: "greed",
 	Keyword.LITTLE_SISTER: "little-sister",
@@ -117,6 +122,7 @@ const TranslateKeyword : Dictionary = {
 	"democracy": Keyword.DEMOCRACY,
 	"dictatorship": Keyword.DICTATORSHIP,
 	"divine": Keyword.DIVINE,
+	"elder-slime": Keyword.ELDER_SLIME,
 	"facism": Keyword.FACISM,
 	"greed": Keyword.GREED,
 	"little-sister": Keyword.LITTLE_SISTER,
@@ -137,6 +143,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.DEMOCRACY: "Gains the combined power of all %SAME_TYPES in your grave.",
 	Keyword.DICTATORSHIP: "Any card can devolve into this.",
 	Keyword.DIVINE: "Defeats any fade-down card.",
+	Keyword.ELDER_SLIME: "...from a non-elder slime, opponent discards 2 cards.",
 	Keyword.FACISM: "If they pass with %WEAK_TYPE with 5000 or less power, destroy all %WEAK_TYPES.",
 	Keyword.GREED: "Discard this card, your dice result is increased by 2.",
 	Keyword.LITTLE_SISTER: "Little sister of",
@@ -157,6 +164,7 @@ const KeywordTags : Dictionary = {
 	Keyword.DEMOCRACY: KeywordTag.STATIC,
 	Keyword.DICTATORSHIP: KeywordTag.STATIC,
 	Keyword.DIVINE: KeywordTag.STATIC,
+	Keyword.ELDER_SLIME: KeywordTag.WHEN_EVOLVED,
 	Keyword.FACISM: KeywordTag.OPPONENT_PASSES,
 	Keyword.GREED: KeywordTag.START_OF_TURN,
 	Keyword.LITTLE_SISTER: KeywordTag.TITLE,

@@ -35,6 +35,17 @@ func update_name() -> void:
 	if display_name.begins_with("The "):
 		display_name = "[font_size=%s][i]The [/i][/font_size]" % (font_size - 4) + display_name.substr(4);
 		has_the = true;
+	else:
+		var regex : RegEx = RegEx.new();
+		regex.compile("^([^-\\s]+-[^-\\s]+)\\s+(.+)$");
+
+		var result : RegExMatch = regex.search(display_name);
+		if result:
+			display_name = "[font_size=%s][i]%s[/i][/font_size] %s" % [
+				font_size - 4,
+				result.get_string(1),
+				result.get_string(2)
+			];
 	name_label.text = "[font_size=%s]%s[/font_size]" % [font_size, display_name];
 
 func update_inner_panel() -> void:
@@ -54,8 +65,14 @@ func update_inner_panel() -> void:
 	inner_layer.add_theme_stylebox_override("panel", style);
 
 func update_art() -> void:
-	var texture : Resource = load(CARD_ART_PATH % [card_data.card_id, card_data.card_name]);
+	var texture : Resource = load(CARD_ART_PATH % [card_data.card_id, get_name_path()]);
 	art_sprite.texture = texture;
+
+func get_name_path() -> String:
+	var name_path : String = card_data.card_name;
+	if name_path.begins_with("The "):
+		name_path = name_path.substr(4);
+	return name_path;
 
 func update_power() -> void:
 	power_label.text = ("%s 000" if card_data.power > 0 else "%s") % str(card_data.power / 1000);

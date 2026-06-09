@@ -3,5 +3,8 @@
 	"name": "The Guildmaster",
 	"type": "rock",
 	"power": 7000,
-	"keywords": []
+	"keywords": [
+		"elder-slime"
+	],
+	"created_at": "2026-06-09"
 }
