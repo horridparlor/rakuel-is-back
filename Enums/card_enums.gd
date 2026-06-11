@@ -173,7 +173,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.DEMOCRACY: "Gains the combined power of all cards supporting this card.",
 	Keyword.DIVINE: "Defeats any fade-down card.",
 	Keyword.ELDER_SLIME: "...from a non-elder slime, opponent discards 2 cards.",
-	Keyword.FACISM: "If they pass with %WEAK_TYPE with 5000 or less power, destroy all %WEAK_TYPES.",
+	Keyword.FACISM: "If they pass with %WEAK_TYPE with 5 000 or less power, destroy all %WEAK_TYPES.",
 	Keyword.GREED: "Discard this card, your dice result is increased by 2.",
 	Keyword.HERWOOD: "You may reveal the top 3 cards of your deck and evolve this card into 1 of them. Add the other 2 to your hand.",
 	Keyword.LITTLE_SISTER: "Little sister of",
