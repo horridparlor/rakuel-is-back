@@ -3,6 +3,8 @@
 	"name": "Mega Giganium",
 	"type": "rock",
 	"power": 8000,
-	"keywords": [],
+	"keywords": [
+		"makkarajarvi"
+	],
 	"created_at": "2026-06-05"
 }

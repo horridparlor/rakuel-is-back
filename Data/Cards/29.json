@@ -3,5 +3,7 @@
 	"name": "Piker",
 	"type": "scissors",
 	"power": 1000,
-	"keywords": []
+	"keywords": [
+		"herwood"
+	]
 }

@@ -3,5 +3,7 @@
 	"name": "Rakuel",
 	"type": "scissors",
 	"power": 5000,
-	"keywords": []
+	"keywords": [
+		"cougar-magnet"
+	]
 }
