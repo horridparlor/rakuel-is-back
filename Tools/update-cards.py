@@ -1,4 +1,5 @@
 # update-cards.py
+from collections import defaultdict
 from pathlib import Path
 import csv
 import json
@@ -116,6 +117,7 @@ keyword_info = parse_gd_keyword_info()
 
 cards = []
 keywords = set()
+keyword_earliest = defaultdict(lambda: "9999-99-99")
 
 for path in sorted(CARDS_DIR.glob("*.json")):
     with path.open("r", encoding="utf-8") as f:
@@ -140,8 +142,11 @@ for path in sorted(CARDS_DIR.glob("*.json")):
         for kw in padded
     ]
 
+    date = card.get("created_at") or "9999-99-99"
     for kw in kws:
         keywords.add(kw)
+        if date < keyword_earliest[kw]:
+            keyword_earliest[kw] = date
 
     cards.append({
         "id": int(card["id"]),
@@ -157,7 +162,9 @@ for path in sorted(CARDS_DIR.glob("*.json")):
         "created_at": card.get("created_at"),
     })
 
-keywords = sorted(keywords)
+# Sort by earliest card using that keyword, then alphabetically for ties
+keywords = sorted(keywords, key=lambda kw: (keyword_earliest[kw], kw))
+keyword_ids = {kw: i + 1 for i, kw in enumerate(keywords)}
 cards.sort(key=lambda c: c["id"])
 
 # CSV files for quick checking
@@ -169,10 +176,10 @@ with (CSV_DIR / "isBack_cardType.csv").open("w", newline="", encoding="utf-8") a
 
 with (CSV_DIR / "isBack_keyword.csv").open("w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
-    writer.writerow(["name", "displayName", "description"])
+    writer.writerow(["id", "name", "displayName", "description"])
     for kw in keywords:
         info = keyword_info.get(kw, {})
-        writer.writerow([kw, info.get("displayName", kw), info.get("description", "")])
+        writer.writerow([keyword_ids[kw], kw, info.get("displayName", kw), info.get("description", "")])
 
 with (CSV_DIR / "isBack_card.csv").open("w", newline="", encoding="utf-8") as f:
     writer = csv.DictWriter(f, fieldnames=[
@@ -189,6 +196,7 @@ lines = []
 
 lines.append("-- Auto-generated from Cards/*.json")
 lines.append("START TRANSACTION;")
+lines.append("SET FOREIGN_KEY_CHECKS = 0;")
 lines.append("")
 
 lines.append("INSERT INTO isBack_cardType (id, name) VALUES")
@@ -198,14 +206,14 @@ lines.append("(3, 'scissors')")
 lines.append("ON DUPLICATE KEY UPDATE name = VALUES(name);")
 lines.append("")
 
+lines.append("DELETE FROM isBack_keyword;")
 for kw in keywords:
     info = keyword_info.get(kw, {})
     display_name = info.get("displayName", kw)
     description = info.get("description", "")
     lines.append(
-        f"INSERT INTO isBack_keyword (name, displayName, description) VALUES "
-        f"({sql_str(kw)}, {sql_str(display_name)}, {sql_str(description)}) "
-        f"ON DUPLICATE KEY UPDATE displayName = VALUES(displayName), description = VALUES(description);"
+        f"INSERT INTO isBack_keyword (id, name, displayName, description) VALUES "
+        f"({keyword_ids[kw]}, {sql_str(kw)}, {sql_str(display_name)}, {sql_str(description)});"
     )
 
 lines.append("")
@@ -253,6 +261,7 @@ ON DUPLICATE KEY UPDATE
 """.strip())
 
 lines.append("")
+lines.append("SET FOREIGN_KEY_CHECKS = 1;")
 lines.append("COMMIT;")
 
 (SQL_DIR / "updateCards.sql").write_text("\n".join(lines), encoding="utf-8")
