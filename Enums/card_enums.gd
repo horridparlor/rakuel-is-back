@@ -176,7 +176,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.COUGAR_MAGNET: "When a cougar supports this card, draw an additional card.",
 	Keyword.CULTISM: "You can reshuffle all 7 little sisters, then draw a prize card.",
 	Keyword.DEMOCRACY: "Gains the combined power of all cards supporting this card.",
-	Keyword.DIVINE: "Defeats any fade-down card.",
+	Keyword.DIVINE: "Defeats any face-down card.",
 	Keyword.ELDER_SLIME: "...from a non-elder slime, opponent discards 2 cards.",
 	Keyword.FACISM: "If they pass with %WEAK_TYPE with 5 000 or less power, destroy all %WEAK_TYPES.",
 	Keyword.GREED: "Discard this card, your dice result is increased by 2.",

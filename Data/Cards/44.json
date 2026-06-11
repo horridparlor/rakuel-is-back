@@ -1,13 +1,10 @@
 {
 	"id": 44,
 	"name": "Alexander Stubb",
-	"type": "paper",
+	"type": "scissors",
 	"power": 3000,
 	"keywords": [
 		"democracy",
 		"magic-potion"
-	],
-	"hide_reminder_text": [
-		"democracy"
 	]
 }
