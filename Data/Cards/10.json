@@ -3,6 +3,8 @@
 	"name": "Fallen Mantista",
 	"type": "scissors",
 	"power": 4000,
-	"keywords": [],
+	"keywords": [
+		"zombie"
+	],
 	"created_at": "2026-06-11"
 }

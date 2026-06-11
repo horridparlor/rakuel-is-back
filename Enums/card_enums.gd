@@ -45,7 +45,8 @@ enum Keyword {
 	SISTER_VIRUS,
 	SLIME,
 	WANDERRET,
-	WIZARD
+	WIZARD,
+	ZOMBIE
 }
 
 enum KeywordTag {
@@ -92,7 +93,8 @@ const KeywordNames : Dictionary = {
 	Keyword.SISTER_VIRUS: "Sister Virus",
 	Keyword.SLIME: "Slime",
 	Keyword.WANDERRET: "Wanderret",
-	Keyword.WIZARD: "Wizard"
+	Keyword.WIZARD: "Wizard",
+	Keyword.ZOMBIE: "Zombie"
 }
 
 const KeywordCodes : Dictionary = {
@@ -113,7 +115,8 @@ const KeywordCodes : Dictionary = {
 	Keyword.SISTER_VIRUS: "sister-virus",
 	Keyword.SLIME: "slime",
 	Keyword.WANDERRET: "wanderret",
-	Keyword.WIZARD: "wizard"
+	Keyword.WIZARD: "wizard",
+	Keyword.ZOMBIE: "zombie"
 }
 
 const TranslateKeyword : Dictionary = {
@@ -134,7 +137,8 @@ const TranslateKeyword : Dictionary = {
 	"sister-virus": Keyword.SISTER_VIRUS,
 	"slime": Keyword.SLIME,
 	"wanderret": Keyword.WANDERRET,
-	"wizard": Keyword.WIZARD
+	"wizard": Keyword.WIZARD,
+	"zombie": Keyword.ZOMBIE
 }
 
 const KeywordDescriptions : Dictionary = {
@@ -155,7 +159,8 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.SISTER_VIRUS: "This card may evolve into any little sister in your grave.",
 	Keyword.SLIME: "Slime",
 	Keyword.WANDERRET: "...a wanderret, draw a card.",
-	Keyword.WIZARD: "Can evolve into any card, but play that card face-down."
+	Keyword.WIZARD: "Can evolve into any card, but play that card face-down.",
+	Keyword.ZOMBIE: "Zombie"
 }
 
 const KeywordTags : Dictionary = {
@@ -177,6 +182,7 @@ const KeywordTags : Dictionary = {
 	Keyword.SLIME: KeywordTag.TITLE,
 	Keyword.WANDERRET: KeywordTag.WHEN_SUPPORTING,
 	Keyword.WIZARD: KeywordTag.STATIC,
+	Keyword.ZOMBIE: KeywordTag.TITLE
 }
 
 func is_title_keyword(keyword : Keyword) -> bool:
