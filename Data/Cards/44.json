@@ -2,8 +2,12 @@
 	"id": 44,
 	"name": "Alexander Stubb",
 	"type": "paper",
-	"power": 13000,
+	"power": 3000,
 	"keywords": [
+		"democracy",
 		"magic-potion"
+	],
+	"hide_reminder_text": [
+		"democracy"
 	]
 }

@@ -28,19 +28,20 @@ func translate_type(type_string : String) -> CardType:
 	return CardType.ROCK;
 
 enum Keyword {
+	AUTOCRACY,
 	COMMUNISM,
 	COUGAR,
 	CULTISM,
 	DEMOCRACY,
-	DICTATORSHIP,
 	DIVINE,
 	ELDER_SLIME,
 	FACISM,
 	GREED,
 	LITTLE_SISTER,
 	MAGIC_POTION,
-	NATURAL_SELECTION,
 	MONARCHY,
+	NATURAL_SELECTION,
+	NECROMANCY,
 	REPLICATE,
 	SISTER_VIRUS,
 	SLIME,
@@ -76,11 +77,11 @@ const KeywordTagNames : Dictionary = {
 }
 
 const KeywordNames : Dictionary = {
+	Keyword.AUTOCRACY: "Autocracy",
 	Keyword.COMMUNISM: "Communism",
 	Keyword.COUGAR: "Cougar",
 	Keyword.CULTISM: "Cultism",
 	Keyword.DEMOCRACY: "Democracy",
-	Keyword.DICTATORSHIP: "Dictatorship",
 	Keyword.DIVINE: "Divine",
 	Keyword.ELDER_SLIME: "Elder-Slime",
 	Keyword.FACISM: "Facism",
@@ -89,6 +90,7 @@ const KeywordNames : Dictionary = {
 	Keyword.MAGIC_POTION: "Magic Potion",
 	Keyword.MONARCHY: "Monarchy",
 	Keyword.NATURAL_SELECTION: "Natural Selection",
+	Keyword.NECROMANCY: "Necromancy",
 	Keyword.REPLICATE: "Replicate",
 	Keyword.SISTER_VIRUS: "Sister Virus",
 	Keyword.SLIME: "Slime",
@@ -98,11 +100,11 @@ const KeywordNames : Dictionary = {
 }
 
 const KeywordCodes : Dictionary = {
+	Keyword.AUTOCRACY: "autocracy",
 	Keyword.COMMUNISM: "communism",
 	Keyword.COUGAR: "cougar",
 	Keyword.CULTISM: "cultism",
 	Keyword.DEMOCRACY: "democracy",
-	Keyword.DICTATORSHIP: "dictatorship",
 	Keyword.DIVINE: "divine",
 	Keyword.ELDER_SLIME: "elder-slime",
 	Keyword.FACISM: "facism",
@@ -111,6 +113,7 @@ const KeywordCodes : Dictionary = {
 	Keyword.MAGIC_POTION: "magic-potion",
 	Keyword.MONARCHY: "monarchy",
 	Keyword.NATURAL_SELECTION: "natural-selection",
+	Keyword.NECROMANCY: "necromancy",
 	Keyword.REPLICATE: "replicate",
 	Keyword.SISTER_VIRUS: "sister-virus",
 	Keyword.SLIME: "slime",
@@ -120,11 +123,11 @@ const KeywordCodes : Dictionary = {
 }
 
 const TranslateKeyword : Dictionary = {
+	"autocracy": Keyword.AUTOCRACY,
 	"communism": Keyword.COMMUNISM,
 	"cougar": Keyword.COUGAR,
 	"cultism": Keyword.CULTISM,
 	"democracy": Keyword.DEMOCRACY,
-	"dictatorship": Keyword.DICTATORSHIP,
 	"divine": Keyword.DIVINE,
 	"elder-slime": Keyword.ELDER_SLIME,
 	"facism": Keyword.FACISM,
@@ -133,6 +136,7 @@ const TranslateKeyword : Dictionary = {
 	"magic-potion": Keyword.MAGIC_POTION,
 	"monarchy": Keyword.MONARCHY,
 	"natural-selection": Keyword.NATURAL_SELECTION,
+	"necromancy": Keyword.NECROMANCY,
 	"replicate": Keyword.REPLICATE,
 	"sister-virus": Keyword.SISTER_VIRUS,
 	"slime": Keyword.SLIME,
@@ -142,11 +146,11 @@ const TranslateKeyword : Dictionary = {
 }
 
 const KeywordDescriptions : Dictionary = {
+	Keyword.AUTOCRACY: "Any card can devolve into this.",
 	Keyword.COMMUNISM: "Replace your bottom prize card with this card. While there, you can draw from opponent’s deck.",
 	Keyword.COUGAR: "...a card with 5 000 or less power, draw a card.",
 	Keyword.CULTISM: "You can reshuffle all 7 little sisters, then draw a prize card.",
-	Keyword.DEMOCRACY: "Gains the combined power of all %SAME_TYPES in your grave.",
-	Keyword.DICTATORSHIP: "Any card can devolve into this.",
+	Keyword.DEMOCRACY: "Gains the combined power of all cards supporting this card.",
 	Keyword.DIVINE: "Defeats any fade-down card.",
 	Keyword.ELDER_SLIME: "...from a non-elder slime, opponent discards 2 cards.",
 	Keyword.FACISM: "If they pass with %WEAK_TYPE with 5000 or less power, destroy all %WEAK_TYPES.",
@@ -155,6 +159,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.MAGIC_POTION: "Roll a D6. If 1, destroy this card. If 6, draw a card.",
 	Keyword.MONARCHY: "Cannot evolve. Defeats any %WEAK_TYPE with more power.",
 	Keyword.NATURAL_SELECTION: "Discard this card. This turn, each player can only play one more card. Those cards are played face-down.",
+	Keyword.NECROMANCY: "You may play a zombie from your grave supporting this.",
 	Keyword.REPLICATE: "Unlimited copies of this card.",
 	Keyword.SISTER_VIRUS: "This card may evolve into any little sister in your grave.",
 	Keyword.SLIME: "Slime",
@@ -164,11 +169,11 @@ const KeywordDescriptions : Dictionary = {
 }
 
 const KeywordTags : Dictionary = {
+	Keyword.AUTOCRACY: KeywordTag.STATIC,
 	Keyword.COMMUNISM: KeywordTag.FROM_HAND,
 	Keyword.COUGAR: KeywordTag.WHEN_SUPPORTING,
 	Keyword.CULTISM: KeywordTag.FROM_GRAVE,
 	Keyword.DEMOCRACY: KeywordTag.STATIC,
-	Keyword.DICTATORSHIP: KeywordTag.STATIC,
 	Keyword.DIVINE: KeywordTag.STATIC,
 	Keyword.ELDER_SLIME: KeywordTag.WHEN_EVOLVES,
 	Keyword.FACISM: KeywordTag.OPPONENT_PASSES,
@@ -177,6 +182,7 @@ const KeywordTags : Dictionary = {
 	Keyword.MAGIC_POTION: KeywordTag.WHEN_PLAYED,
 	Keyword.MONARCHY: KeywordTag.STATIC,
 	Keyword.NATURAL_SELECTION: KeywordTag.START_OF_TURN,
+	Keyword.NECROMANCY: KeywordTag.WHEN_PLAYED,
 	Keyword.REPLICATE: KeywordTag.DECK_BUILDING,
 	Keyword.SISTER_VIRUS: KeywordTag.STATIC,
 	Keyword.SLIME: KeywordTag.TITLE,

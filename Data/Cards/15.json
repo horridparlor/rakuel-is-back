@@ -5,6 +5,10 @@
 	"power": 7000,
 	"keywords": [
 		"zombie",
+		"wanderret",
+		"necromancy"
+	],
+	"hide_reminder_text": [
 		"wanderret"
 	]
 }

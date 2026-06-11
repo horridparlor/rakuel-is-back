@@ -4,7 +4,12 @@
 	"type": "scissors",
 	"power": 4000,
 	"keywords": [
-		"zombie"
+		"zombie",
+		"democracy",
+		"necromancy"
+	],
+	"hide_reminder_text": [
+		"democracy"
 	],
 	"created_at": "2026-06-11"
 }
