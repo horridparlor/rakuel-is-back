@@ -3,5 +3,7 @@
 	"name": "Skilta Grunt",
 	"type": "paper",
 	"power": 3000,
-	"keywords": []
+	"keywords": [
+		"sahkotalo"
+	]
 }

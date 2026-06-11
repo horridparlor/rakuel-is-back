@@ -5,6 +5,7 @@ const Instance : GDScript = preload("res://Scripts/System/instance.gd");
 const Json : GDScript = preload("res://Scripts/System/json.gd");
 const Paths : GDScript = preload("res://Scripts/System/paths.gd");
 const Random : GDScript = preload("res://Scripts/System/random.gd");
+const Strings : GDScript = preload("res://Scripts/System/strings.gd");
 const Styles : GDScript = preload("res://Scripts/System/styles.gd");
 
 var random : RandomNumberGenerator = RandomNumberGenerator.new();

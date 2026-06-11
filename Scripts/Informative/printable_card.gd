@@ -30,8 +30,9 @@ func update_name() -> void:
 	var font_size : int = 104;
 	var display_name : String = card_data.card_name;
 	var has_the : bool;
-	if card_data.card_name.length() > 12:
-		font_size -= (card_data.card_name.length() - 10) * 3.5;
+	var tagless_name : String = System.Strings.remove_bbcode_tags(card_data.card_name);
+	if tagless_name.length() > 12:
+		font_size -= (tagless_name.length() - 10) * 3.5;
 	if display_name.begins_with("The "):
 		display_name = "[font_size=%s][i]The [/i][/font_size]" % (font_size - 4) + display_name.substr(4);
 		has_the = true;
