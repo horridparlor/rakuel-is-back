@@ -124,8 +124,10 @@ func update_footer() -> void:
 	
 
 func update_effects() -> void:
+	var effects_text : String = card_data.get_effects_text();
 	effects_label.position.y = -304 if (card_data.keywords.size() == 1 and card_data.has_title) else -324;
-	effects_label.text = card_data.get_effects_text();
+	effects_label.text = effects_text;
+	effects_label.position.y += 12 if effects_label.get_line_count() > 5 else 0;
 	gravestone_icon.visible = card_data.has_grave_effect;
 
 func update_outer_layer() -> void:
