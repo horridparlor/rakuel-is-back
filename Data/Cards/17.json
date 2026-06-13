@@ -1,9 +1,11 @@
 {
 	"id": 17,
-	"name": "Little Wandy",
+	"name": "Little Wandu",
 	"type": "scissors",
 	"power": 1000,
 	"keywords": [
 		"wanderret"
-	]
+	],
+	"text_down": true,
+	"created_at": "2026-06-13"
 }

@@ -5,6 +5,9 @@
 	"power": 5000,
 	"keywords": [
 		"zombie",
-		"wanderret"
-	]
+		"wanderret",
+		"replicate"
+	],
+	"text_down": true,
+	"created_at": "2026-06-13"
 }

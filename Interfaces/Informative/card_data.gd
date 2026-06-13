@@ -9,6 +9,7 @@ const DEFAULT_DATA : Dictionary = {
 	"power": 0,
 	"keywords": [],
 	"hide_reminder_text": [],
+	"text_down": false,
 	"created_at": "2026-12-31"
 }
 
@@ -21,6 +22,7 @@ var keywords : Array;
 var hide_reminder_text : Dictionary;
 var has_title : bool;
 var has_grave_effect : bool;
+var text_down : bool;
 var created_at : String;
 var release_year : int;
 
@@ -37,6 +39,7 @@ func load_json() -> void:
 	power = data.power;
 	eat_keywords(data.keywords);
 	eat_hide_reminder_text(data.hide_reminder_text);
+	text_down = data.text_down;
 	created_at = data.created_at;
 	release_year = int(created_at.substr(0, 4));
 
