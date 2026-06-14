@@ -2,8 +2,9 @@
 	"id": 35,
 	"name": "Lotte's Pantsu",
 	"type": "paper",
-	"power": 6000,
+	"power": 1000,
 	"keywords": [
 		"facism"
-	]
+	],
+	"created_at": "2026-06-14"
 }
