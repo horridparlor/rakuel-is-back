@@ -38,14 +38,14 @@ func update_name() -> void:
 		has_the = true;
 	else:
 		var regex : RegEx = RegEx.new();
-		regex.compile("^([^-\\s]+-[^-\\s]+)\\s+(.+)$");
+		regex.compile("^((?:[^-\\s]+-)+[^-\\s]+)(?:\\s+(.+))?$");
 
 		var result : RegExMatch = regex.search(display_name);
 		if result:
-			display_name = "[font_size=%s][i]%s[/i][/font_size] %s" % [
+			display_name = "[font_size=%s][i]%s[/i][/font_size]%s" % [
 				font_size - 4,
 				result.get_string(1),
-				result.get_string(2)
+				"" if result.get_string(2).is_empty() else " " + result.get_string(2)
 			];
 	name_label.text = "[font_size=%s]%s[/font_size]" % [font_size, display_name];
 

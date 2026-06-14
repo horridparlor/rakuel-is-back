@@ -1,9 +1,10 @@
 {
 	"id": 38,
-	"name": "Chair Stealer",
+	"name": "Chair-Stealer",
 	"type": "rock",
 	"power": 6000,
 	"keywords": [
 		"cougar"
-	]
+	],
+	"created_at": "2026-06-14"
 }
