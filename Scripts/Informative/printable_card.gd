@@ -38,7 +38,7 @@ func update_name() -> void:
 		has_the = true;
 	else:
 		var regex : RegEx = RegEx.new();
-		regex.compile("^((?:[^-\\s]+-)+[^-\\s]+)(?:\\s+(.+))?$");
+		regex.compile("^((?:[^-\\s']+-)+[^-\\s']+|[^\\s']+'s)(?:\\s+(.+))?$");
 
 		var result : RegExMatch = regex.search(display_name);
 		if result:
