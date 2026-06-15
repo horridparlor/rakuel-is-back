@@ -61,7 +61,7 @@ enum KeywordTag {
 	FROM_GRAVE,
 	FROM_HAND,
 	OPPONENT_PASSES,
-	START_OF_TURN,
+	START_OF_ROUND,
 	STATIC,
 	TITLE,
 	WHEN_EVOLVES,
@@ -74,7 +74,7 @@ const KeywordTagNames : Dictionary = {
 	KeywordTag.FROM_GRAVE: "From grave",
 	KeywordTag.FROM_HAND: "From hand",
 	KeywordTag.OPPONENT_PASSES: "Opponent passes",
-	KeywordTag.START_OF_TURN: "Start of turn",
+	KeywordTag.START_OF_ROUND: "Start of round",
 	KeywordTag.STATIC: "Static",
 	KeywordTag.TITLE: "Title",
 	KeywordTag.WHEN_EVOLVES: "When evolves",
@@ -187,7 +187,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.MAKKARAJARVI: "You may return a card supporting this to hand. If it was a makkara, you may discard it and draw a card.",
 	Keyword.MIKONTALO: "You may return this card from field to hand. If you do, discard a card.",
 	Keyword.MONARCHY: "Cannot evolve. Defeats any %WEAK_TYPE with more power.",
-	Keyword.NATURAL_SELECTION: "Discard this card. This turn, each player can only play one more card. Those cards are played face-down.",
+	Keyword.NATURAL_SELECTION: "Discard this card. This round, each player can only play one more card. Those cards are played face-down.",
 	Keyword.NECROMANCY: "You may play a zombie from your grave supporting this.",
 	Keyword.REPLICATE: "Unlimited copies of this card.",
 	Keyword.SAHKOTALO: "You may discard up to 2 cards. If you do, retrigger the effects of up to that many cards supporting this card.",
@@ -208,7 +208,7 @@ const KeywordTags : Dictionary = {
 	Keyword.DIVINE: KeywordTag.STATIC,
 	Keyword.ELDER_SLIME: KeywordTag.WHEN_EVOLVES,
 	Keyword.FACISM: KeywordTag.OPPONENT_PASSES,
-	Keyword.GREED: KeywordTag.START_OF_TURN,
+	Keyword.GREED: KeywordTag.START_OF_ROUND,
 	Keyword.HERWOOD: KeywordTag.OPPONENT_PASSES,
 	Keyword.LITTLE_SISTER: KeywordTag.TITLE,
 	Keyword.MAGIC_POTION: KeywordTag.WHEN_PLAYED,
@@ -216,7 +216,7 @@ const KeywordTags : Dictionary = {
 	Keyword.MAKKARAJARVI: KeywordTag.WHEN_PLAYED,
 	Keyword.MIKONTALO: KeywordTag.OPPONENT_PASSES,
 	Keyword.MONARCHY: KeywordTag.STATIC,
-	Keyword.NATURAL_SELECTION: KeywordTag.START_OF_TURN,
+	Keyword.NATURAL_SELECTION: KeywordTag.START_OF_ROUND,
 	Keyword.NECROMANCY: KeywordTag.WHEN_PLAYED,
 	Keyword.REPLICATE: KeywordTag.DECK_BUILDING,
 	Keyword.SAHKOTALO: KeywordTag.WHEN_PLAYED,
@@ -240,7 +240,7 @@ func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, h
 	var keyword_name : String = KeywordNames[keyword];
 	var tag_name : String = KeywordTagNames[KeywordTags[keyword]];
 	var description : String = enrich_keyword_description(KeywordDescriptions[keyword], card_type);
-	var title_font_size : int = 44 if keyword_name.length() + tag_name.length() > 28 else 48;
+	var title_font_size : int = 40 if keyword_name.length() + tag_name.length() > 28 else 48;
 	var font_size : int = 40 if description.length() > 64 else 48;
 	var formatted_name : String = "[b]%s" % keyword_name;
 	if "-" in keyword_name:

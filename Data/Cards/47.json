@@ -1,9 +1,11 @@
 {
 	"id": 47,
 	"name": "Rakuel",
-	"type": "scissors",
+	"type": "paper",
 	"power": 5000,
 	"keywords": [
 		"cougar-magnet"
-	]
+	],
+	"text_down": true,
+	"created_at": "2026-06-15"
 }

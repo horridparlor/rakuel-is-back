@@ -2,8 +2,10 @@
 	"id": 57,
 	"name": "Scissors Of Greed",
 	"type": "scissors",
-	"power": 3000,
+	"power": 2000,
 	"keywords": [
 		"greed"
-	]
+	],
+	"text_down": true,
+	"created_at": "2026-06-15"
 }
