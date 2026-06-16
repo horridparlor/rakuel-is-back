@@ -75,7 +75,7 @@ func update_art() -> void:
 	art_sprite.texture = texture;
 
 func update_power() -> void:
-	power_label.text = ("%s 000" if card_data.power > 0 else "%s") % str(card_data.power / 1000);
+	power_label.text = ("%s 000" if card_data.power > -1 else "%s") % str(card_data.power / 1000);
 	set_power_panel();
 
 func set_power_panel() -> void:
@@ -86,8 +86,9 @@ func set_power_panel() -> void:
 	var power_pattern_texture : Texture;
 	var power_pattern_size_name : String = "normal";
 	if card_data.power == 0:
-		width = POWER_PANEL_ZERO_WIDTH;
-		power_pattern_size_name = "short";
+		#width = POWER_PANEL_ZERO_WIDTH;
+		#power_pattern_size_name = "short";
+		pass;
 	elif card_data.power >= 10000:
 		width = POWER_PANEL_TEN_THOUSAND_WIDTH;
 		power_pattern_size_name = "long";

@@ -3,5 +3,9 @@
 	"name": "Fortuna Hemulensis Gigantes",
 	"type": "rock",
 	"power": 10000,
-	"keywords": []
+	"keywords": [
+		"herwood"
+	],
+	"created_at": "2026-06-15",
+	"text_down": true
 }

@@ -180,7 +180,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.ELDER_SLIME: "...from a non-elder slime, opponent discards 2 cards.",
 	Keyword.FACISM: "If they pass with %WEAK_TYPE with 5 000 or less power, destroy all %WEAK_TYPES.",
 	Keyword.GREED: "Discard this card, your dice result is increased by 2.",
-	Keyword.HERWOOD: "Look at the top 3 cards of your deck, and evolve this into 1 of them. If you do, add the other 2 into your hand.",
+	Keyword.HERWOOD: "Look at the top 3 cards of your deck, and devolve this into 1 of them. If you do, add the other 2 into your hand.",
 	Keyword.LITTLE_SISTER: "The little sister of",
 	Keyword.MAGIC_POTION: "Roll a D6. If 1, destroy this card. If 6, draw a card.",
 	Keyword.MAKKARA: "Makkara",

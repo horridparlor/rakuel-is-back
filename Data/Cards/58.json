@@ -2,6 +2,7 @@
 	"id": 58,
 	"name": "8-Ball",
 	"type": "rock",
-	"power": 8000,
-	"keywords": []
+	"power": 0,
+	"keywords": [],
+	"created_at": "2026-06-16"
 }
