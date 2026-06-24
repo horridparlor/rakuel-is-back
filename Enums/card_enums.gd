@@ -48,6 +48,7 @@ enum Keyword {
 	NATURAL_SELECTION,
 	NECROMANCY,
 	REPLICATE,
+	RIZZ,
 	SAHKOTALO,
 	SISTER_VIRUS,
 	SLIME,
@@ -58,6 +59,7 @@ enum Keyword {
 
 enum KeywordTag {
 	DECK_BUILDING,
+	DISCARD_FROM_HAND,
 	FROM_GRAVE,
 	FROM_HAND,
 	OPPONENT_PASSES,
@@ -71,6 +73,7 @@ enum KeywordTag {
 
 const KeywordTagNames : Dictionary = {
 	KeywordTag.DECK_BUILDING: "Deck building",
+	KeywordTag.DISCARD_FROM_HAND: "Discard from hand",
 	KeywordTag.FROM_GRAVE: "From grave",
 	KeywordTag.FROM_HAND: "From hand",
 	KeywordTag.OPPONENT_PASSES: "Opponent passes",
@@ -103,6 +106,7 @@ const KeywordNames : Dictionary = {
 	Keyword.NATURAL_SELECTION: "Natural Selection",
 	Keyword.NECROMANCY: "Necromancy",
 	Keyword.REPLICATE: "Replicate",
+	Keyword.RIZZ: "Rizz",
 	Keyword.SAHKOTALO: "Sähkötalo",
 	Keyword.SISTER_VIRUS: "Sister Virus",
 	Keyword.SLIME: "Slime",
@@ -132,6 +136,7 @@ const KeywordCodes : Dictionary = {
 	Keyword.NATURAL_SELECTION: "natural-selection",
 	Keyword.NECROMANCY: "necromancy",
 	Keyword.REPLICATE: "replicate",
+	Keyword.RIZZ: "rizz",
 	Keyword.SAHKOTALO: "sahkotalo",
 	Keyword.SISTER_VIRUS: "sister-virus",
 	Keyword.SLIME: "slime",
@@ -161,6 +166,7 @@ const TranslateKeyword : Dictionary = {
 	"natural-selection": Keyword.NATURAL_SELECTION,
 	"necromancy": Keyword.NECROMANCY,
 	"replicate": Keyword.REPLICATE,
+	"rizz": Keyword.RIZZ,
 	"sahkotalo": Keyword.SAHKOTALO,
 	"sister-virus": Keyword.SISTER_VIRUS,
 	"slime": Keyword.SLIME,
@@ -190,6 +196,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.NATURAL_SELECTION: "Discard this card. This round, each player can only play one more card. Those cards are played face-down.",
 	Keyword.NECROMANCY: "You may play a zombie from your grave supporting this.",
 	Keyword.REPLICATE: "Unlimited copies of this card.",
+	Keyword.RIZZ: "Opponent may discard a card to negate your rizz. If they don't, reveal one of their face-down cards.",
 	Keyword.SAHKOTALO: "You may discard up to 2 cards. If you do, retrigger the effects of up to that many cards supporting this card.",
 	Keyword.SISTER_VIRUS: "This card may evolve into any little sister in your grave.",
 	Keyword.SLIME: "Slime",
@@ -219,6 +226,7 @@ const KeywordTags : Dictionary = {
 	Keyword.NATURAL_SELECTION: KeywordTag.START_OF_ROUND,
 	Keyword.NECROMANCY: KeywordTag.WHEN_PLAYED,
 	Keyword.REPLICATE: KeywordTag.DECK_BUILDING,
+	Keyword.RIZZ: KeywordTag.DISCARD_FROM_HAND,
 	Keyword.SAHKOTALO: KeywordTag.WHEN_PLAYED,
 	Keyword.SISTER_VIRUS: KeywordTag.STATIC,
 	Keyword.SLIME: KeywordTag.TITLE,
