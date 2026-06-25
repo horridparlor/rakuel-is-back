@@ -1,0 +1,10 @@
+{
+	"id": 101,
+	"name": "Hotdog",
+	"type": "scissors",
+	"power": 1000,
+	"keywords": [
+		"makkara"
+	],
+	"created_at": ""
+}

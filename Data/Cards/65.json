@@ -1,0 +1,10 @@
+{
+	"id": 65,
+	"name": "Darwin",
+	"type": "rock",
+	"power": 4000,
+	"keywords": [
+		"natural-selection"
+	],
+	"created_at": ""
+}

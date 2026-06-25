@@ -1,0 +1,10 @@
+{
+	"id": 111,
+	"name": "Infernoid",
+	"type": "rock",
+	"power": 3000,
+	"keywords": [
+		"infernoid"
+	],
+	"created_at": ""
+}
