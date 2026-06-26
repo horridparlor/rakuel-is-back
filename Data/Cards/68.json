@@ -2,7 +2,7 @@
 	"id": 68,
 	"name": "Tank",
 	"type": "rock",
-	"power": 9000,
+	"power": 10000,
 	"keywords": [],
 	"created_at": ""
 }

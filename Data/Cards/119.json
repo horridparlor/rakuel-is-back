@@ -1,7 +1,7 @@
 {
 	"id": 119,
 	"name": "Lock",
-	"type": "rock",
+	"type": "paper",
 	"power": 3000,
 	"keywords": [],
 	"created_at": ""

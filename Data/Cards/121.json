@@ -4,7 +4,8 @@
 	"type": "scissors",
 	"power": 2000,
 	"keywords": [
-		"zombie"
+		"zombie",
+		"replicate"
 	],
 	"created_at": ""
 }

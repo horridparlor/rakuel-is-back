@@ -4,7 +4,10 @@
 	"type": "rock",
 	"power": 4000,
 	"keywords": [
-		"necromancy",
+		"infinity",
+		"necromancy"
+	],
+	"hide_reminder_text": [
 		"infinity"
 	],
 	"created_at": ""
