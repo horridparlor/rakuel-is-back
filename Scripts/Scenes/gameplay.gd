@@ -8,14 +8,22 @@ func _ready() -> void:
 
 func _process(delta : float) -> void:
 	if Input.is_action_just_pressed("take_screenshot"):
-		System.Json.take_screenshot(card, "%s - %s" % [str(card.card_data.card_id), card.get_name_path()], \
-		PrintableCard.OUTER_LAYER_PRINT_SCALE if Config.PRINT_MODE \
-		else PrintableCard.OUTER_LAYER_BASE_SCALE, \
-		0 if Config.PRINT_MODE else 75);
+		take_screenshot();
 	if Input.is_action_just_pressed("next_card"):
 		load_next_card();
 	if Input.is_action_just_pressed("previous_card"):
 		load_previous_card();
+
+func take_screenshot() -> void:
+	System.Json.take_screenshot(card, "%s - %s" % [str(card.card_data.card_id), card.get_name_path()], \
+		PrintableCard.OUTER_LAYER_PRINT_SCALE if Config.PRINT_MODE \
+		else PrintableCard.OUTER_LAYER_BASE_SCALE, \
+		0 if Config.PRINT_MODE else 75);
+	if Config.SCREENSHOT_ALL:
+		await System.wait(0.1);
+		load_next_card();
+		await System.wait(0.1);
+		take_screenshot();
 
 func load_next_card() -> void:
 	current_card_id += 1;

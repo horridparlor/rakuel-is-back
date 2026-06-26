@@ -14,3 +14,12 @@ var game_speed : float = 1.0;
 func init() -> void:
 	random.randomize();
 	Json.create_directories();
+
+func wait(wait : float) -> void:
+	var timer : Timer = Timer.new();
+	timer.wait_time = wait;
+	timer.one_shot = true;
+	add_child(timer);
+	timer.start();
+	await timer.timeout;
+	timer.queue_free();
