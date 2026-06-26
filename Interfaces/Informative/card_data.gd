@@ -42,6 +42,8 @@ func load_json() -> void:
 	text_down = data.text_down;
 	created_at = data.created_at;
 	release_year = int(created_at.substr(0, 4));
+	if release_year == 0:
+		release_year = 2026;
 
 func eat_keywords(source : Array) -> void:
 	for keyword_string in source:

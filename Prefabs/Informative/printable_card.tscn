@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://blgr74hnsnmp3" path="res://Assets/Fonts/Montserrat/Montserrat-BoldItalic.ttf" id="7_d2cgd"]
 [ext_resource type="FontFile" uid="uid://d1yqah22sjqki" path="res://Assets/Fonts/Montserrat/Montserrat-Light.ttf" id="7_vbxm2"]
 [ext_resource type="Texture2D" uid="uid://bnj02172od26s" path="res://Assets/Art/TypeIcons/rock_40x40.png" id="8_d2cgd"]
+[ext_resource type="FontFile" uid="uid://dil84vg37o5mo" path="res://Assets/Fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf" id="11_20m0b"]
 [ext_resource type="Texture2D" uid="uid://gxxoiym6h5qm" path="res://Assets/Art/TypeIcons/GravestoneIcon.png" id="12_xolks"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur83n"]
@@ -190,14 +191,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -372.0
-offset_top = 630.0
-offset_right = -44.0
-offset_bottom = 661.0
+offset_left = -368.0
+offset_top = 625.0
+offset_right = -40.0
+offset_bottom = 668.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("7_aixx3")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("11_20m0b")
+theme_override_font_sizes/font_size = 32
 text = "#000001"
 
 [node name="TypeLabel" type="Label" parent="Footer" unique_id=550208676]
@@ -228,9 +229,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 44.0
-offset_top = 630.0
+offset_top = 631.0
 offset_right = 372.0
-offset_bottom = 661.0
+offset_bottom = 662.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_vbxm2")
