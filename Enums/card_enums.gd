@@ -17,6 +17,11 @@ const TranslateCardType : Dictionary = {
 	CardType.SCISSORS: "Scissors"
 }
 
+const GRAVE_EFFECT_TAGS : Dictionary = {
+	KeywordTag.FROM_GRAVE: null,
+	KeywordTag.WHEN_RESHUFFLED: null,
+}
+
 func translate_type(type_string : String) -> CardType:
 	match type_string:
 		"rock":
@@ -123,7 +128,7 @@ const KeywordNames : Dictionary = {
 	Keyword.MAGIC_POTION: "Magic Potion",
 	Keyword.MAKKARA: "Makkara",
 	Keyword.MAKKARAJARVI: "Makkarajärvi",
-	Keyword.MEGA_GREED: "Mega Greed",
+	Keyword.MEGA_GREED: "Mega-Greed",
 	Keyword.MIC_PASS: "Mic Pass!",
 	Keyword.MIKONTALO: "Mikontalo",
 	Keyword.MONARCHY: "Monarchy",
@@ -317,7 +322,7 @@ func is_title_keyword(keyword : Keyword) -> bool:
 	return KeywordTags[keyword] == KeywordTag.TITLE;
 
 func is_keyword_grave_effect(keyword : Keyword) -> bool:
-	return KeywordTags[keyword] == KeywordTag.FROM_GRAVE;
+	return GRAVE_EFFECT_TAGS.has(KeywordTags[keyword]);
 
 func is_long_keyword(keyword : Keyword) -> bool:
 	return KeywordDescriptions[keyword].length() > 80;
