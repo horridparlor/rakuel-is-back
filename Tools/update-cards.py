@@ -148,6 +148,8 @@ for path in sorted(CARDS_DIR.glob("*.json")):
         if date < keyword_earliest[kw]:
             keyword_earliest[kw] = date
 
+    alt_arts = card.get("alt_arts")
+
     cards.append({
         "id": int(card["id"]),
         "name": card["name"],
@@ -159,6 +161,7 @@ for path in sorted(CARDS_DIR.glob("*.json")):
         "reminderVisible": reminder_visible[0],
         "reminder2Visible": reminder_visible[1],
         "reminder3Visible": reminder_visible[2],
+        "altArts": int(alt_arts) if alt_arts is not None else None,
         "created_at": card.get("created_at"),
     })
 
@@ -186,7 +189,7 @@ with (CSV_DIR / "isBack_card.csv").open("w", newline="", encoding="utf-8") as f:
         "id", "name", "type", "power",
         "keyword1", "keyword2", "keyword3",
         "reminderVisible", "reminder2Visible", "reminder3Visible",
-        "created_at",
+        "altArts", "created_at",
     ])
     writer.writeheader()
     writer.writerows(cards)
@@ -236,6 +239,7 @@ for c in cards:
         sql_bool(c["reminderVisible"]),
         sql_bool(c["reminder2Visible"]),
         sql_bool(c["reminder3Visible"]),
+        str(c["altArts"]) if c["altArts"] is not None else "NULL",
         created_at_value,
     ]
 
@@ -244,7 +248,7 @@ INSERT INTO isBack_card (
     id, name, cardTypeId, power,
     keywordId, keyword2Id, keyword3Id,
     reminderVisible, reminder2Visible, reminder3Visible,
-    created_at
+    altArts, created_at
 ) VALUES (
     {", ".join(values)}
 )
@@ -257,7 +261,8 @@ ON DUPLICATE KEY UPDATE
     keyword3Id = VALUES(keyword3Id),
     reminderVisible = VALUES(reminderVisible),
     reminder2Visible = VALUES(reminder2Visible),
-    reminder3Visible = VALUES(reminder3Visible);
+    reminder3Visible = VALUES(reminder3Visible),
+    altArts = VALUES(altArts);
 """.strip())
 
 lines.append("")

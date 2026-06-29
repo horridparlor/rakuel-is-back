@@ -15,7 +15,7 @@ func _process(delta : float) -> void:
 		load_previous_card();
 
 func take_screenshot() -> void:
-	System.Json.take_screenshot(card, "%s - %s" % [str(card.card_data.card_id), card.get_name_path()], \
+	System.Json.take_screenshot(card, "%s - %s" % [str(card.card_data.card_id), card.get_name_path() + (" (%s)" % (alt_art_id + 1) if alt_art_id > 0 else "")], \
 		PrintableCard.OUTER_LAYER_PRINT_SCALE if Config.PRINT_MODE \
 		else PrintableCard.OUTER_LAYER_BASE_SCALE, \
 		0 if Config.PRINT_MODE else 75);
@@ -26,16 +26,29 @@ func take_screenshot() -> void:
 		take_screenshot();
 
 func load_next_card() -> void:
-	current_card_id += 1;
+	if alt_art_id < card.card_data.alt_arts:
+		alt_art_id += 1;
+	else:
+		current_card_id += 1;
+		alt_art_id = 0;
 	if current_card_id > Config.MAX_CARD_ID:
 		current_card_id = 1;
 	load_card();
 
 func load_card() -> void:
-	card.load_card_data(current_card_id);
+	card.load_card_data(current_card_id, alt_art_id);
 
 func load_previous_card() -> void:
-	current_card_id -= 1;
+	var did_back_from_alt_art : bool;
+	if alt_art_id > 0:
+		alt_art_id -= 1;
+		did_back_from_alt_art = true;
+	else:
+		current_card_id -= 1;
+		alt_art_id = 0;
 	if current_card_id == 0:
 		current_card_id = Config.MAX_CARD_ID;
 	load_card();
+	if !did_back_from_alt_art:
+		alt_art_id = card.card_data.alt_arts;
+		load_card();

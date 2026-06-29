@@ -34,9 +34,11 @@ const CREDIT_LABEL_TEXT : String = "©%s Eero Laine";
 const ID_LABEL_LENGTH : int = 6;
 
 var card_data : CardData;
+var alt_art_id : int;
 
-func load_card_data(card_id : int):
+func load_card_data(card_id : int, _alt_art_id : int):
 	card_data = CardData.new(card_id);
+	alt_art_id = _alt_art_id;
 	update_visuals();
 
 func update_visuals() -> void:

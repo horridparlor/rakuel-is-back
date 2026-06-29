@@ -71,7 +71,7 @@ func update_inner_panel() -> void:
 	inner_layer.add_theme_stylebox_override("panel", style);
 
 func update_art() -> void:
-	var texture : Resource = load(CARD_ART_PATH % [card_data.card_id, get_name_path()]);
+	var texture : Resource = load(CARD_ART_PATH % [card_data.card_id, get_name_path() + (" (%s)" % (alt_art_id + 1) if alt_art_id > 0 else "")]);
 	art_sprite.texture = texture;
 
 func update_power() -> void:
