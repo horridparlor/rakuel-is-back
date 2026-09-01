@@ -19,6 +19,7 @@ const TranslateCardType : Dictionary = {
 
 const GRAVE_EFFECT_TAGS : Dictionary = {
 	KeywordTag.FROM_GRAVE: null,
+	KeywordTag.RESHUFFLE_THIS: null,
 	KeywordTag.WHEN_RESHUFFLED: null,
 }
 
@@ -83,6 +84,7 @@ enum KeywordTag {
 	IF_A_FACE_DOWN_CARD,
 	IF_DISCARDED,
 	OPPONENT_PASSES,
+	RESHUFFLE_THIS,
 	START_OF_ROUND,
 	STATIC,
 	TITLE,
@@ -100,6 +102,7 @@ const KeywordTagNames : Dictionary = {
 	KeywordTag.IF_A_FACE_DOWN_CARD: "If a face-down card",
 	KeywordTag.IF_DISCARDED: "If discarded",
 	KeywordTag.OPPONENT_PASSES: "Opponent passes",
+	KeywordTag.RESHUFFLE_THIS: "Reshuffle this",
 	KeywordTag.START_OF_ROUND: "Start of round",
 	KeywordTag.STATIC: "Static",
 	KeywordTag.TITLE: "Title",
@@ -319,7 +322,7 @@ const KeywordTags : Dictionary = {
 	Keyword.SUS: KeywordTag.IF_A_FACE_DOWN_CARD,
 	Keyword.TELEPORTATION: KeywordTag.OPPONENT_PASSES,
 	Keyword.WANDERRET: KeywordTag.WHEN_SUPPORTING,
-	Keyword.WATCH_QUICK: KeywordTag.WHEN_PLAYED,
+	Keyword.WATCH_QUICK: KeywordTag.RESHUFFLE_THIS,
 	Keyword.WIZARD: KeywordTag.STATIC,
 	Keyword.ZOMBIE: KeywordTag.TITLE
 }
