@@ -2,7 +2,7 @@
 	"id": 121,
 	"name": "Burger Skeleton",
 	"type": "scissors",
-	"power": 2000,
+	"power": 1000,
 	"keywords": [
 		"zombie",
 		"replicate"
