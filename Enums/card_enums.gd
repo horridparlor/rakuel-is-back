@@ -8,13 +8,15 @@ const KEYWORD_DASHED_NAME_STRING : String = "[font_size=%s][i]%s[/i][/font_size]
 enum CardType {
 	ROCK,
 	PAPER,
-	SCISSORS
+	SCISSORS,
+	GUN
 }
 
 const TranslateCardType : Dictionary = {
 	CardType.ROCK: "Rock",
 	CardType.PAPER: "Paper",
-	CardType.SCISSORS: "Scissors"
+	CardType.SCISSORS: "Scissors",
+	CardType.GUN: "Gun"
 }
 
 const GRAVE_EFFECT_TAGS : Dictionary = {
@@ -31,6 +33,8 @@ func translate_type(type_string : String) -> CardType:
 			return CardType.PAPER;
 		"scissors":
 			return CardType.SCISSORS;
+		"gun":
+			return CardType.GUN;
 	return CardType.ROCK;
 
 enum Keyword {

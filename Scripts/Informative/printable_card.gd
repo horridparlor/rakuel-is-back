@@ -66,6 +66,8 @@ func update_inner_panel() -> void:
 			bg_color = INNER_PANEL_COLOR_PAPER;
 		CardEnums.CardType.SCISSORS:
 			bg_color = INNER_PANEL_COLOR_SCISSORS;
+		CardEnums.CardType.GUN:
+			bg_color = INNER_PANEL_COLOR_GUN;
 	style.bg_color = bg_color;
 	System.Styles.set_all_corners(style, INNER_PANEL_CORNER_RADIUS);
 	inner_layer.add_theme_stylebox_override("panel", style);
@@ -106,6 +108,8 @@ func set_power_panel() -> void:
 		CardEnums.CardType.SCISSORS:
 			bg_color = POWER_PANEL_COLOR_SCISSORS;
 			corner_radius = 0;
+		CardEnums.CardType.GUN:
+			bg_color = POWER_PANEL_COLOR_GUN;
 	style.bg_color = bg_color;
 	System.Styles.set_all_corners(style, corner_radius);
 	System.Styles.set_all_borders(style, POWER_PANEL_BORDER_WIDTH);
@@ -122,6 +126,8 @@ func update_footer() -> void:
 			type_icon_x = TYPE_ICON_PAPER_X;
 		CardEnums.CardType.SCISSORS:
 			type_icon_x = TYPE_ICON_SCISSORS_X;
+		CardEnums.CardType.GUN:
+			type_icon_x = TYPE_ICON_GUN_X;
 	type_icon.position.x = type_icon_x;
 	type_icon.texture = type_icon_texture;
 	id_label.text = ID_LABEL_TEXT % str(card_data.card_id).pad_zeros(ID_LABEL_LENGTH);

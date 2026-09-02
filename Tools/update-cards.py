@@ -5,7 +5,7 @@ import csv
 import json
 import re
 
-CARD_TYPES = ["rock", "paper", "scissors"]
+CARD_TYPES = ["rock", "paper", "scissors", "gun"]
 
 CARDS_DIR = Path("../Data/Cards")
 ENUMS_FILE = Path("../Enums/card_enums.gd")
@@ -205,7 +205,8 @@ lines.append("")
 lines.append("INSERT INTO isBack_cardType (id, name) VALUES")
 lines.append("(1, 'rock'),")
 lines.append("(2, 'paper'),")
-lines.append("(3, 'scissors')")
+lines.append("(3, 'scissors'),")
+lines.append("(4, 'gun')")
 lines.append("ON DUPLICATE KEY UPDATE name = VALUES(name);")
 lines.append("")
 
