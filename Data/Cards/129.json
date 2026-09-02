@@ -1,8 +1,10 @@
 {
 	"id": 129,
-	"name": "Name",
-	"type": "rock",
-	"power": 1000,
-	"keywords": [],
+	"name": "Rusty Scissors",
+	"type": "scissors",
+	"power": 2000,
+	"keywords": [
+		"rust"
+	],
 	"created_at": ""
 }

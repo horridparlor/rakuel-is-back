@@ -1,8 +1,10 @@
 {
 	"id": 128,
-	"name": "Name",
-	"type": "rock",
-	"power": 1000,
-	"keywords": [],
+	"name": "Lenin",
+	"type": "scissors",
+	"power": 6000,
+	"keywords": [
+		"anti-trump"
+	],
 	"created_at": ""
 }
