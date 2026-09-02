@@ -1,8 +1,10 @@
 {
 	"id": 115,
-	"name": "Graduation",
+	"name": "Diamond",
 	"type": "rock",
 	"power": 9000,
-	"keywords": [],
+	"keywords": [
+		"treasure"
+	],
 	"created_at": ""
 }
