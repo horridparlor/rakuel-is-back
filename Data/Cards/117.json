@@ -3,6 +3,8 @@
 	"name": "First Contact",
 	"type": "rock",
 	"power": 1000,
-	"keywords": [],
+	"keywords": [
+		"teleportation"
+	],
 	"created_at": ""
 }

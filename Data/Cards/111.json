@@ -1,10 +1,10 @@
 {
 	"id": 111,
-	"name": "Infernoid",
+	"name": "Dompusho",
 	"type": "rock",
 	"power": 3000,
 	"keywords": [
-		"infernoid"
+		"miner"
 	],
 	"created_at": ""
 }
