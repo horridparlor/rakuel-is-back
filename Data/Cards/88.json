@@ -1,10 +1,11 @@
 {
 	"id": 88,
 	"name": "The Dark Snuff",
-	"type": "rock",
+	"type": "paper",
 	"power": 7000,
 	"keywords": [
 		"autocracy"
 	],
-	"created_at": ""
+	"text_down": true,
+	"created_at": "2026-09-02"
 }
