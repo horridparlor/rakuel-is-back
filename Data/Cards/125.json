@@ -1,0 +1,10 @@
+{
+	"id": 125,
+	"name": "Teleportation Device",
+	"type": "rock",
+	"power": 3000,
+	"keywords": [
+		"flush"
+	],
+	"created_at": ""
+}
