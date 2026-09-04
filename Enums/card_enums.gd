@@ -22,7 +22,13 @@ const TranslateCardType : Dictionary = {
 const GRAVE_EFFECT_TAGS : Dictionary = {
 	KeywordTag.FROM_GRAVE: null,
 	KeywordTag.RESHUFFLE_THIS: null,
+	KeywordTag.WHEN_MILLED: null,
 	KeywordTag.WHEN_RESHUFFLED: null,
+}
+
+const GRAVE_KEYWORDS : Dictionary = {
+	Keyword.MINER: null,
+	Keyword.ZOMBIE: null
 }
 
 func translate_type(type_string : String) -> CardType:
@@ -361,7 +367,8 @@ func is_title_keyword(keyword : Keyword) -> bool:
 	return KeywordTags[keyword] == KeywordTag.TITLE;
 
 func is_keyword_grave_effect(keyword : Keyword) -> bool:
-	return GRAVE_EFFECT_TAGS.has(KeywordTags[keyword]);
+	return GRAVE_EFFECT_TAGS.has(KeywordTags[keyword]) \
+		or GRAVE_KEYWORDS.has(keyword);
 
 func is_long_keyword(keyword : Keyword) -> bool:
 	return KeywordDescriptions[keyword].length() > 80;

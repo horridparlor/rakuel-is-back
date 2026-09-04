@@ -54,8 +54,6 @@ func eat_keywords(source : Array) -> void:
 			keywords.append(CardEnums.TranslateKeyword[keyword_string]);
 	for keyword in keywords:
 		if CardEnums.is_title_keyword(keyword):
-			if keyword == CardEnums.Keyword.ZOMBIE:
-				has_grave_effect = true;
 			has_title = true;
 		if CardEnums.is_keyword_grave_effect(keyword):
 			has_grave_effect = true;
