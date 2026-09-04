@@ -22,12 +22,10 @@ const TranslateCardType : Dictionary = {
 const GRAVE_EFFECT_TAGS : Dictionary = {
 	KeywordTag.FROM_GRAVE: null,
 	KeywordTag.RESHUFFLE_THIS: null,
-	KeywordTag.WHEN_MILLED: null,
 	KeywordTag.WHEN_RESHUFFLED: null,
 }
 
 const GRAVE_KEYWORDS : Dictionary = {
-	Keyword.MINER: null,
 	Keyword.ZOMBIE: null
 }
 
