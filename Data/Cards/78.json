@@ -3,6 +3,8 @@
 	"name": "Cauliflower",
 	"type": "paper",
 	"power": 3000,
-	"keywords": [],
+	"keywords": [
+		"farming"
+	],
 	"created_at": ""
 }

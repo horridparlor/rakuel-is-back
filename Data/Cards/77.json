@@ -3,6 +3,8 @@
 	"name": "Cabbage",
 	"type": "rock",
 	"power": 4000,
-	"keywords": [],
+	"keywords": [
+		"farming"
+	],
 	"created_at": ""
 }
