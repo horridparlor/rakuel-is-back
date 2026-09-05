@@ -283,7 +283,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.EQUAL_EXCHANGE: "Opponent discards a card.",
 	Keyword.EXAM: "Opponent guesses the type of the top card of your deck. Then, mill it.\n[b]•[/b] Right guess, they draw a card.\n[b]•[/b] Wrong guess, they discard a card.",
 	Keyword.FACISM: "If they pass with %WEAK_TYPE with 5 000 or less power, destroy all %WEAK_TYPES.",
-	Keyword.FARMING: "Discard this and any number of other cards. For every 2 cards discarded, add [i](draw face-down)[/i] a card to your [i]farm[/i]. During your turn, you may [i]reap[/i] the farm. [b]At the end of your turns[/b], add a card to the farm.",
+	Keyword.FARMING: "Discard this and any number of other cards. For every 2 cards discarded, grow [i](draw a card face-down to)[/i] your [i]farm[/i]. During your turn, you may [i]reap[/i] the farm. [b]At the end of each round[/b], grow the farm.",
 	Keyword.FLUSH: "...%SAME_TYPE, you may purge %STRONG_TYPE from any grave.",
 	Keyword.GREED: "Discard this card, your dice result is increased by 2.",
 	Keyword.HERWOOD: "Look at the top 3 cards of your deck, and devolve this into 1 of them. If you do, add the other 2 into your hand.",
