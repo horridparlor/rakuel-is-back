@@ -6,5 +6,7 @@
 	"keywords": [
 		"exam"
 	],
+	"text_down": true,
+	"bolden_tag": true,
 	"created_at": "2026-07-13"
 }
