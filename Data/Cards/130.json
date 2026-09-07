@@ -1,8 +1,10 @@
 {
 	"id": 130,
-	"name": "Name",
-	"type": "rock",
-	"power": 1000,
-	"keywords": [],
+	"name": "Hellsinki City",
+	"type": "paper",
+	"power": 9000,
+	"keywords": [
+		"rakuel-was-here"
+	],
 	"created_at": ""
 }
