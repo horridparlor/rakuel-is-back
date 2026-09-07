@@ -10,6 +10,7 @@ const DEFAULT_DATA : Dictionary = {
 	"keywords": [],
 	"hide_reminder_text": [],
 	"text_down": false,
+	"bolden_tag": false,
 	"alt_arts": 0,
 	"created_at": "2026-12-31"
 }
@@ -24,6 +25,7 @@ var hide_reminder_text : Dictionary;
 var has_title : bool;
 var has_grave_effect : bool;
 var text_down : bool;
+var bolden_tag : bool;
 var alt_arts : int;
 var created_at : String;
 var release_year : int;
@@ -42,6 +44,7 @@ func load_json() -> void:
 	eat_keywords(data.keywords);
 	eat_hide_reminder_text(data.hide_reminder_text);
 	text_down = data.text_down;
+	bolden_tag = data.bolden_tag;
 	alt_arts = data.alt_arts;
 	created_at = data.created_at;
 	release_year = int(created_at.substr(0, 4));
@@ -68,5 +71,5 @@ func get_effects_text() -> String:
 	for keyword in keywords:
 		if !effects_text.is_empty():
 			effects_text += "\n";
-		effects_text += CardEnums.get_keyword_text(keyword, card_type, hide_reminder_text.has(keyword), keywords.size() == 1, power);
+		effects_text += CardEnums.get_keyword_text(keyword, card_type, hide_reminder_text.has(keyword), keywords.size() == 1, power, bolden_tag);
 	return effects_text;

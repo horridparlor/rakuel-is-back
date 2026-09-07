@@ -1,9 +1,12 @@
 extends Node
 
-const KEYWORD_STRING : String = "[center]%s [font_size=%s][i][%s][/i][/font_size][/b]\n[font_size=%s]%s[/font_size][/center]";
-const KEYWORD_REMINDLESS_STRING : String = "[center]%s [font_size=%s][i][%s][/i][/font_size][/b]";
+const KEYWORD_STRING : String = "[center]%s [font=%s][font_size=%s][%s][/font_size][/font]\n[font_size=%s]%s[/font_size][/center]";
+const KEYWORD_REMINDLESS_STRING : String = "[center]%s [font=%s][font_size=%s][%s][/font_size][/font]";
 const TITLE_STRING : String = "[center][font_size=%s][u][i]%s[/i][/u][/font_size][/center]";
-const KEYWORD_DASHED_NAME_STRING : String = "[font_size=%s][i]%s[/i][/font_size][b]%s";
+const KEYWORD_DASHED_NAME_STRING : String = "[font_size=%s][i]%s[/i][b]%s[/b][/font_size]";
+
+const TAG_FONT_ITALIC : String = "res://Assets/Fonts/Montserrat/Montserrat-LightItalic.ttf";
+const TAG_FONT_ITALIC_BOLDEN : String = "res://Assets/Fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf";
 
 enum CardType {
 	ROCK,
@@ -383,27 +386,31 @@ func is_keyword_grave_effect(keyword : Keyword) -> bool:
 func is_long_keyword(keyword : Keyword) -> bool:
 	return KeywordDescriptions[keyword].length() > 80;
 
-func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false, is_only_keyword : bool = false, power : int = 0) -> String:
+func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false, is_only_keyword : bool = false, power : int = 0, bolden_tag : bool = false) -> String:
 	var keyword_name : String = KeywordNames[keyword];
 	var tag_name : String = KeywordTagNames[KeywordTags[keyword]];
 	var description : String = enrich_keyword_description(KeywordDescriptions[keyword], card_type, power);
 	var title_font_size : int = 40 if keyword_name.length() + tag_name.length() > 25 else 48;
+	var name_font_size : int = title_font_size + 8 if bolden_tag else title_font_size;
 	var font_size : int = 40 if description.length() > 64 else 48;
-	var formatted_name : String = "[b]%s" % keyword_name;
+	var tag_font : String = TAG_FONT_ITALIC_BOLDEN if bolden_tag else TAG_FONT_ITALIC;
+	var formatted_name : String = "[font_size=%s][b]%s[/b][/font_size]" % [name_font_size, keyword_name];
 	if "-" in keyword_name:
 		var dash_idx = keyword_name.find("-");
-		formatted_name = KEYWORD_DASHED_NAME_STRING % [title_font_size, keyword_name.substr(0, dash_idx + 1), keyword_name.substr(dash_idx + 1)];
+		formatted_name = KEYWORD_DASHED_NAME_STRING % [name_font_size, keyword_name.substr(0, dash_idx + 1), keyword_name.substr(dash_idx + 1)];
 	if is_title_keyword(keyword):
 		font_size = 48 if is_only_keyword else 40;
 		return TITLE_STRING % [font_size, description];
 	if hide_reminder:
 		return KEYWORD_REMINDLESS_STRING % [
 			formatted_name,
+			tag_font,
 			title_font_size,
 			tag_name,
 		];
 	return KEYWORD_STRING % [
 		formatted_name,
+		tag_font,
 		title_font_size,
 		tag_name,
 		font_size,
