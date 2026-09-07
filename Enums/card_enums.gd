@@ -317,7 +317,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.TELEPORTATION: "You may replace your primary card with this card from your hand. If you do, discard either %WEAK_TYPE or 2 cards.",
 	Keyword.TREASURE: "Draw a card.",
 	Keyword.TRUMP_CARD: "While you have 5 or less cards in hand, you may discard this card. If you do, negate all lingering effects. Also, hide all face-up prize cards.",
-	Keyword.TUTOR: "Discard this card. Search %SAME_TYPE with %THIS_POWER or less power. [b][i](Shuffle.)[/i][/b]",
+	Keyword.TUTOR: "Discard this card. Search %SAME_TYPE with %LESS_POWER or less power. [b][i](Shuffle.)[/i][/b]",
 	Keyword.WANDERRET: "...a wanderret, draw a card.",
 	Keyword.WATCH_QUICK: "Reveal target face-down card.",
 	Keyword.WIZARD: "Can evolve into any card, but play that card face-down.",
@@ -467,4 +467,6 @@ func enrich_keyword_description(description : String, card_type : CardType = Car
 		.replace("%WEAK_TYPE", weak_type) \
 		.replace("%STRONG_TYPES", strong_types) \
 		.replace("%STRONG_TYPE", strong_type) \
-		.replace("%THIS_POWER", format_power(power));
+		.replace("%THIS_POWER", format_power(power)) \
+		.replace("%MORE_POWER", format_power(min(power + 1000, 13000))) \
+		.replace("%LESS_POWER", format_power(max(power - 1000, 0)));

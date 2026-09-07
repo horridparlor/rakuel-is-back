@@ -41,6 +41,9 @@ func update_name() -> void:
 	if display_name.begins_with("The "):
 		display_name = "[font_size=%s][i]The [/i][/font_size]" % (font_size - 4) + display_name.substr(4);
 		has_the = true;
+	elif display_name.begins_with("The_"):
+		display_name = "[font_size=%s][i]The_[/i][/font_size]" % (font_size - 4) + display_name.substr(4);
+		has_the = true;
 	else:
 		var regex : RegEx = RegEx.new();
 		regex.compile("^((?:[^-\\s']+-)+[^-\\s']+|[^\\s']+'s)(?:\\s+(.+))?$");

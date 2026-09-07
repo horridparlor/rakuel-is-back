@@ -51,4 +51,6 @@ func get_name_path() -> String:
 	var name_path : String = System.Strings.remove_bbcode_tags(card_data.card_name);
 	if name_path.begins_with("The "):
 		name_path = name_path.substr(4);
+	elif name_path.begins_with("The_"):
+		name_path = name_path.substr(3);
 	return name_path;
