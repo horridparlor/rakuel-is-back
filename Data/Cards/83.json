@@ -1,10 +1,10 @@
 {
 	"id": 83,
 	"name": "The An*T",
-	"type": "paper",
-	"power": 0,
+	"type": "rock",
+	"power": 4000,
 	"keywords": [
-		"miner"
+		"tutor"
 	],
-	"created_at": ""
+	"created_at": "2026-09-07"
 }

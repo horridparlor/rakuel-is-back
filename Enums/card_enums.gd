@@ -83,6 +83,7 @@ enum Keyword {
 	TELEPORTATION,
 	TREASURE,
 	TRUMP_CARD,
+	TUTOR,
 	WANDERRET,
 	WATCH_QUICK,
 	WIZARD,
@@ -169,6 +170,7 @@ const KeywordNames : Dictionary = {
 	Keyword.TELEPORTATION: "Teleporation",
 	Keyword.TREASURE: "Treasure",
 	Keyword.TRUMP_CARD: "Trump Card",
+	Keyword.TUTOR: "Tutor",
 	Keyword.WANDERRET: "Wanderret",
 	Keyword.WATCH_QUICK: "Watch Quick!",
 	Keyword.WIZARD: "Wizard",
@@ -217,6 +219,7 @@ const KeywordCodes : Dictionary = {
 	Keyword.TELEPORTATION: "teleportation",
 	Keyword.TREASURE: "treasure",
 	Keyword.TRUMP_CARD: "trump-card",
+	Keyword.TUTOR: "tutor",
 	Keyword.WANDERRET: "wanderret",
 	Keyword.WATCH_QUICK: "watch-quick",
 	Keyword.WIZARD: "wizard",
@@ -265,6 +268,7 @@ const TranslateKeyword : Dictionary = {
 	"teleportation": Keyword.TELEPORTATION,
 	"treasure": Keyword.TREASURE,
 	"trump-card": Keyword.TRUMP_CARD,
+	"tutor": Keyword.TUTOR,
 	"wanderret": Keyword.WANDERRET,
 	"watch-quick": Keyword.WATCH_QUICK,
 	"wizard": Keyword.WIZARD,
@@ -313,6 +317,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.TELEPORTATION: "You may replace your primary card with this card from your hand. If you do, discard either %WEAK_TYPE or 2 cards.",
 	Keyword.TREASURE: "Draw a card.",
 	Keyword.TRUMP_CARD: "While you have 5 or less cards in hand, you may discard this card. If you do, negate all lingering effects. Also, hide all face-up prize cards.",
+	Keyword.TUTOR: "Discard this card. Search %SAME_TYPE with %THIS_POWER or less power. Shuffle.",
 	Keyword.WANDERRET: "...a wanderret, draw a card.",
 	Keyword.WATCH_QUICK: "Reveal target face-down card.",
 	Keyword.WIZARD: "Can evolve into any card, but play that card face-down.",
@@ -361,6 +366,7 @@ const KeywordTags : Dictionary = {
 	Keyword.TELEPORTATION: KeywordTag.OPPONENT_PASSES,
 	Keyword.TREASURE: KeywordTag.WHEN_MILLED,
 	Keyword.TRUMP_CARD: KeywordTag.FROM_HAND,
+	Keyword.TUTOR: KeywordTag.START_OF_ROUND,
 	Keyword.WANDERRET: KeywordTag.WHEN_SUPPORTING,
 	Keyword.WATCH_QUICK: KeywordTag.RESHUFFLE_THIS,
 	Keyword.WIZARD: KeywordTag.STATIC,
@@ -377,10 +383,10 @@ func is_keyword_grave_effect(keyword : Keyword) -> bool:
 func is_long_keyword(keyword : Keyword) -> bool:
 	return KeywordDescriptions[keyword].length() > 80;
 
-func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false, is_only_keyword : bool = false) -> String:
+func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false, is_only_keyword : bool = false, power : int = 0) -> String:
 	var keyword_name : String = KeywordNames[keyword];
 	var tag_name : String = KeywordTagNames[KeywordTags[keyword]];
-	var description : String = enrich_keyword_description(KeywordDescriptions[keyword], card_type);
+	var description : String = enrich_keyword_description(KeywordDescriptions[keyword], card_type, power);
 	var title_font_size : int = 40 if keyword_name.length() + tag_name.length() > 25 else 48;
 	var font_size : int = 40 if description.length() > 64 else 48;
 	var formatted_name : String = "[b]%s" % keyword_name;
@@ -410,7 +416,18 @@ const PAPER : String = "a paper";
 const PAPERS : String = "papers";
 const SCISSORS : String = "scissors";
 
-func enrich_keyword_description(description : String, card_type : CardType = CardType.ROCK) -> String:
+func format_power(power : int) -> String:
+	var power_string : String = str(power);
+	var formatted : String = "";
+	var digits_added : int = 0;
+	for i in range(power_string.length() - 1, -1, -1):
+		formatted = power_string[i] + formatted;
+		digits_added += 1;
+		if digits_added % 3 == 0 and i != 0:
+			formatted = " " + formatted;
+	return formatted;
+
+func enrich_keyword_description(description : String, card_type : CardType = CardType.ROCK, power : int = 0) -> String:
 	var same_type : String = "";
 	var same_types : String = "";
 	var weak_type : String = "";
@@ -449,4 +466,5 @@ func enrich_keyword_description(description : String, card_type : CardType = Car
 		.replace("%WEAK_TYPES", weak_types) \
 		.replace("%WEAK_TYPE", weak_type) \
 		.replace("%STRONG_TYPES", strong_types) \
-		.replace("%STRONG_TYPE", strong_type);
+		.replace("%STRONG_TYPE", strong_type) \
+		.replace("%THIS_POWER", format_power(power));
