@@ -311,7 +311,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.POVERTY: "To evolve this, discard a card.",
 	Keyword.REPLICATE: "Unlimited copies of this card.",
 	Keyword.RIZZ: "Opponent may discard a card to negate your rizz. If they don't, reveal one of their face-down cards.",
-	Keyword.SAHKOTALO: "You may discard up to 2 cards. If you do, retrigger the effects of up to that many cards supporting this card.",
+	Keyword.SAHKOTALO: "You may discard up to 2 cards. If you do, retrigger the effects of up to that many cards supporting this.",
 	Keyword.SINFUL: "...from a card with 2 000 or less power, mill 3. Opponent discards a card for each scissors milled.",
 	Keyword.SISTER_VIRUS: "This card may evolve into any little sister in your grave.",
 	Keyword.SLIME: "Slime",
