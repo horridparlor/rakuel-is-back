@@ -6,6 +6,7 @@ const TITLE_STRING : String = "[center][font_size=%s][u][i]%s[/i][/u][/font_size
 const KEYWORD_DASHED_NAME_STRING : String = "[font_size=%s][i]%s[/i][b]%s[/b][/font_size]";
 
 const TAG_FONT_ITALIC : String = "res://Assets/Fonts/Montserrat/Montserrat-LightItalic.ttf";
+const TAG_FONT_ITALIC_TEXT_BOLDEN : String = "res://Assets/Fonts/Montserrat/Montserrat-Italic.ttf";
 const TAG_FONT_ITALIC_BOLDEN : String = "res://Assets/Fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf";
 
 enum CardType {
@@ -293,7 +294,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.FARMING: "Discard this and any number of other cards. For every 2 cards discarded, [i]grow[/i] [b][i](draw a card face-down to)[/i][/b] your [i]farm[/i]. During your turn, you may [i]reap[/i] the farm. [b]At the end of each round[/b], grow the farm.",
 	Keyword.FLUSH: "...%SAME_TYPE, you may purge %STRONG_TYPE from any grave.",
 	Keyword.GREED: "Discard this card, your dice result is increased by 2.",
-	Keyword.HERWOOD: "Look at the top 3 cards of your deck, and devolve this into 1 of them. If you do, add the other 2 into your hand.",
+	Keyword.HERWOOD: "Look at the top 3 cards of your deck, and devolve this into 1 of them. If you do, add the other 2 into hand.",
 	Keyword.INFINITY: "While fully supported, this card gains infinite power.",
 	Keyword.JUST_OK: "Draw a card, discard a card.",
 	Keyword.LITTLE_SISTER: "The little sister of",
@@ -386,14 +387,14 @@ func is_keyword_grave_effect(keyword : Keyword) -> bool:
 func is_long_keyword(keyword : Keyword) -> bool:
 	return KeywordDescriptions[keyword].length() > 80;
 
-func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false, is_only_keyword : bool = false, power : int = 0, bolden_tag : bool = false) -> String:
+func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false, is_only_keyword : bool = false, power : int = 0, bolden_tag : bool = false, bolden_text : bool = false) -> String:
 	var keyword_name : String = KeywordNames[keyword];
 	var tag_name : String = KeywordTagNames[KeywordTags[keyword]];
 	var description : String = enrich_keyword_description(KeywordDescriptions[keyword], card_type, power);
 	var title_font_size : int = 40 if keyword_name.length() + tag_name.length() > 25 else 48;
 	var name_font_size : int = title_font_size + 8 if bolden_tag else title_font_size;
 	var font_size : int = 40 if description.length() > 64 else 48;
-	var tag_font : String = TAG_FONT_ITALIC_BOLDEN if bolden_tag else TAG_FONT_ITALIC;
+	var tag_font : String = TAG_FONT_ITALIC_BOLDEN if bolden_tag else (TAG_FONT_ITALIC_TEXT_BOLDEN if bolden_text else TAG_FONT_ITALIC);
 	var formatted_name : String = "[font_size=%s][b]%s[/b][/font_size]" % [name_font_size, keyword_name];
 	if "-" in keyword_name:
 		var dash_idx = keyword_name.find("-");

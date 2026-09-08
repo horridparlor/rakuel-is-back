@@ -12,6 +12,7 @@ const DEFAULT_DATA : Dictionary = {
 	"text_down": false,
 	"bolden_tag": false,
 	"black_text": false,
+	"bolden_text": false,
 	"alt_arts": 0,
 	"created_at": "2026-12-31"
 }
@@ -28,6 +29,7 @@ var has_grave_effect : bool;
 var text_down : bool;
 var bolden_tag : bool;
 var black_text : bool;
+var bolden_text : bool;
 var alt_arts : int;
 var created_at : String;
 var release_year : int;
@@ -48,6 +50,7 @@ func load_json() -> void:
 	text_down = data.text_down;
 	bolden_tag = data.bolden_tag;
 	black_text = data.black_text;
+	bolden_text = data.bolden_text;
 	alt_arts = data.alt_arts;
 	created_at = data.created_at;
 	release_year = int(created_at.substr(0, 4));
@@ -74,5 +77,5 @@ func get_effects_text() -> String:
 	for keyword in keywords:
 		if !effects_text.is_empty():
 			effects_text += "\n";
-		effects_text += CardEnums.get_keyword_text(keyword, card_type, hide_reminder_text.has(keyword), keywords.size() == 1, power, bolden_tag);
+		effects_text += CardEnums.get_keyword_text(keyword, card_type, hide_reminder_text.has(keyword), keywords.size() == 1, power, bolden_tag, bolden_text or black_text);
 	return effects_text;
