@@ -93,8 +93,8 @@ func set_power_panel() -> void:
 	var power_pattern_texture : Texture;
 	var power_pattern_size_name : String = "normal";
 	if card_data.power == 0:
-		width = POWER_PANEL_ZERO_WIDTH;
-		power_pattern_size_name = "short";
+		#width = POWER_PANEL_ZERO_WIDTH;
+		#power_pattern_size_name = "short";
 		pass;
 	elif card_data.power >= 10000:
 		width = POWER_PANEL_TEN_THOUSAND_WIDTH;
