@@ -5,7 +5,6 @@ const KEYWORD_REMINDLESS_STRING : String = "[center]%s [font=%s][font_size=%s][%
 const TITLE_STRING : String = "[center][font_size=%s][u][i]%s[/i][/u][/font_size][/center]";
 const KEYWORD_DASHED_NAME_STRING : String = "[font_size=%s][i]%s[/i][b]%s[/b][/font_size]";
 
-const TAG_FONT_ITALIC : String = "res://Assets/Fonts/Montserrat/Montserrat-LightItalic.ttf";
 const TAG_FONT_ITALIC_TEXT_BOLDEN : String = "res://Assets/Fonts/Montserrat/Montserrat-Italic.ttf";
 const TAG_FONT_ITALIC_BOLDEN : String = "res://Assets/Fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf";
 
@@ -387,7 +386,7 @@ func is_keyword_grave_effect(keyword : Keyword) -> bool:
 func is_long_keyword(keyword : Keyword) -> bool:
 	return KeywordDescriptions[keyword].length() > 80;
 
-func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false, is_only_keyword : bool = false, power : int = 0, bolden_tag : bool = false, bolden_text : bool = false) -> String:
+func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false, is_only_keyword : bool = false, power : int = 0, bolden_tag : bool = false) -> String:
 	var keyword_name : String = KeywordNames[keyword];
 	var tag_name : String = KeywordTagNames[KeywordTags[keyword]];
 	var description : String = enrich_keyword_description(KeywordDescriptions[keyword], card_type, power);
@@ -395,7 +394,7 @@ func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, h
 	var title_font_size : int = 40 if over_length_limit else 48;
 	var name_font_size : int = (52 if over_length_limit else 56) if bolden_tag else 48;
 	var font_size : int = 40 if description.length() > 64 else 48;
-	var tag_font : String = TAG_FONT_ITALIC_BOLDEN if bolden_tag else (TAG_FONT_ITALIC_TEXT_BOLDEN if bolden_text else TAG_FONT_ITALIC);
+	var tag_font : String = TAG_FONT_ITALIC_BOLDEN if bolden_tag else TAG_FONT_ITALIC_TEXT_BOLDEN;
 	var formatted_name : String = "[font_size=%s][b]%s[/b][/font_size]" % [name_font_size, keyword_name];
 	if "-" in keyword_name:
 		var dash_idx = keyword_name.find("-");
