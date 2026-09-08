@@ -391,8 +391,9 @@ func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, h
 	var keyword_name : String = KeywordNames[keyword];
 	var tag_name : String = KeywordTagNames[KeywordTags[keyword]];
 	var description : String = enrich_keyword_description(KeywordDescriptions[keyword], card_type, power);
-	var title_font_size : int = 40 if keyword_name.length() + tag_name.length() > 25 else 48;
-	var name_font_size : int = (48 + 8) if bolden_tag else 48;
+	var over_length_limit : bool = keyword_name.length() + tag_name.length() > 25;
+	var title_font_size : int = 40 if over_length_limit else 48;
+	var name_font_size : int = (52 if over_length_limit else 56) if bolden_tag else 48;
 	var font_size : int = 40 if description.length() > 64 else 48;
 	var tag_font : String = TAG_FONT_ITALIC_BOLDEN if bolden_tag else (TAG_FONT_ITALIC_TEXT_BOLDEN if bolden_text else TAG_FONT_ITALIC);
 	var formatted_name : String = "[font_size=%s][b]%s[/b][/font_size]" % [name_font_size, keyword_name];
