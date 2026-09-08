@@ -31,7 +31,8 @@ const POWER_PANEL_ZERO_WIDTH : int = 200;
 const POWER_PANEL_THOUSAND_WIDTH : int = 470;
 const POWER_PANEL_TEN_THOUSAND_WIDTH : int = 500;
 const POWER_PANEL_GUN_TOOTH_LENGTH : float = 56.0;
-const POWER_PANEL_GUN_TOOTH_DEPTH : float = 8.0;
+const POWER_PANEL_GUN_TOOTH_OUT_DEPTH : float = 12.0;
+const POWER_PANEL_GUN_TOOTH_IN_DEPTH : float = 6.0;
 
 const CARD_ART_PATH : String = "res://Assets/Art/CardArt/%s - %s.png";
 const EFFECTS_BOLD_FONT_PATH : String = "res://Assets/Fonts/Montserrat/Montserrat-SemiBold.ttf";

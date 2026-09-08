@@ -126,8 +126,8 @@ func set_power_panel() -> void:
 	power_panel_gun_front.visible = is_gun;
 	if is_gun:
 		var outer_rect : Rect2 = Rect2(power_panel.position, power_panel.size);
-		var segment_counts : Array = System.Styles.compute_serrated_segment_counts(outer_rect.size, POWER_PANEL_GUN_TOOTH_LENGTH);
-		var outer_points : PackedVector2Array = System.Styles.generate_serrated_rect_points(outer_rect, segment_counts, POWER_PANEL_GUN_TOOTH_DEPTH);
+		var segment_counts : Array = System.Styles.compute_serrated_segment_counts(outer_rect.size, POWER_PANEL_GUN_TOOTH_LENGTH / 2.0, POWER_PANEL_GUN_TOOTH_LENGTH);
+		var outer_points : PackedVector2Array = System.Styles.generate_serrated_rect_points(outer_rect, segment_counts, POWER_PANEL_GUN_TOOTH_OUT_DEPTH, POWER_PANEL_GUN_TOOTH_IN_DEPTH);
 		power_panel_gun_back.polygon = outer_points;
 		power_panel_gun_front.polygon = System.Styles.inset_polygon_points(outer_points, POWER_PANEL_BORDER_WIDTH);
 		power_panel_gun_front.color = Color(bg_color);

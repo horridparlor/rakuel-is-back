@@ -49,9 +49,9 @@ static func set_corners_in_direction(style : StyleBoxFlat, corner_radius : int, 
 
 # One segment count per edge (top, right, bottom, left), so a serrated rect and
 # a smaller/larger inset copy of it can share the same tooth positions.
-static func compute_serrated_segment_counts(rect_size : Vector2, tooth_length : float) -> Array:
-	var horizontal_segments : int = max(2, roundi(rect_size.x / tooth_length));
-	var vertical_segments : int = max(2, roundi(rect_size.y / tooth_length));
+static func compute_serrated_segment_counts(rect_size : Vector2, horizontal_tooth_length : float, vertical_tooth_length : float) -> Array:
+	var horizontal_segments : int = max(2, roundi(rect_size.x / horizontal_tooth_length));
+	var vertical_segments : int = max(2, roundi(rect_size.y / vertical_tooth_length));
 	# Every edge starts flat at its corner but ends on a tooth, so which way that
 	# last tooth leans (in/out) depends on whether its segment count is odd or
 	# even. Match parities so all four corners lean the same way.
@@ -59,7 +59,7 @@ static func compute_serrated_segment_counts(rect_size : Vector2, tooth_length : 
 		vertical_segments += 1;
 	return [horizontal_segments, vertical_segments, horizontal_segments, vertical_segments];
 
-static func generate_serrated_rect_points(rect : Rect2, segment_counts : Array, tooth_depth : float) -> PackedVector2Array:
+static func generate_serrated_rect_points(rect : Rect2, segment_counts : Array, tooth_depth_out : float, tooth_depth_in : float) -> PackedVector2Array:
 	var points : PackedVector2Array = PackedVector2Array();
 	var corners : Array = [
 		rect.position,
@@ -80,7 +80,7 @@ static func generate_serrated_rect_points(rect : Rect2, segment_counts : Array, 
 		var segment_count : int = segment_counts[edge_idx];
 		var step : Vector2 = (end - start) / segment_count;
 		for i in range(segment_count):
-			var offset : float = 0.0 if i == 0 else (tooth_depth if i % 2 == 1 else -tooth_depth);
+			var offset : float = 0.0 if i == 0 else (tooth_depth_out if i % 2 == 1 else -tooth_depth_in);
 			points.append(start + step * i + normal * offset);
 	return points;
 
