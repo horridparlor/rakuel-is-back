@@ -51,6 +51,12 @@ static func set_corners_in_direction(style : StyleBoxFlat, corner_radius : int, 
 # a smaller/larger inset copy of it can share the same tooth positions.
 static func compute_serrated_segment_counts(rect_size : Vector2, horizontal_tooth_length : float, vertical_tooth_length : float) -> Array:
 	var horizontal_segments : int = max(2, roundi(rect_size.x / horizontal_tooth_length));
+	# Each edge starts flat at its corner, so both corners only end up looking
+	# the same (both leaning "out") when the segment count is even - an odd
+	# count leaves one end notched "in" instead, making the two corners of the
+	# same edge look unequal.
+	if horizontal_segments % 2 != 0:
+		horizontal_segments -= 1;
 	var vertical_segments : int = max(2, roundi(rect_size.y / vertical_tooth_length));
 	# Every edge starts flat at its corner but ends on a tooth, so which way that
 	# last tooth leans (in/out) depends on whether its segment count is odd or
