@@ -7,6 +7,8 @@ extends PrintableCard
 @onready var power_label : Label = $PowerLabel;
 @onready var art_sprite : Sprite2D = $ArtSprite;
 @onready var power_panel : Panel = $PowerPanel;
+@onready var power_panel_gun_back : Polygon2D = $PowerPanelGunBack;
+@onready var power_panel_gun_front : Polygon2D = $PowerPanelGunFront;
 @onready var power_pattern : Sprite2D = $PowerPattern;
 @onready var id_label : Label = $Footer/IdLabel;
 @onready var type_icon : Sprite2D = $Footer/TypeIcon;
@@ -118,6 +120,17 @@ func set_power_panel() -> void:
 	System.Styles.set_all_borders(style, POWER_PANEL_BORDER_WIDTH);
 	style.border_color = Color.WHITE;
 	power_panel.add_theme_stylebox_override("panel", style);
+	var is_gun : bool = card_data.card_type == CardEnums.CardType.GUN;
+	power_panel.visible = not is_gun;
+	power_panel_gun_back.visible = is_gun;
+	power_panel_gun_front.visible = is_gun;
+	if is_gun:
+		var outer_rect : Rect2 = Rect2(power_panel.position, power_panel.size);
+		var segment_counts : Array = System.Styles.compute_serrated_segment_counts(outer_rect.size, POWER_PANEL_GUN_TOOTH_LENGTH);
+		var outer_points : PackedVector2Array = System.Styles.generate_serrated_rect_points(outer_rect, segment_counts, POWER_PANEL_GUN_TOOTH_DEPTH);
+		power_panel_gun_back.polygon = outer_points;
+		power_panel_gun_front.polygon = System.Styles.inset_polygon_points(outer_points, POWER_PANEL_BORDER_WIDTH);
+		power_panel_gun_front.color = Color(bg_color);
 
 func update_footer() -> void:
 	var type_icon_x : int;
