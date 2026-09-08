@@ -11,6 +11,7 @@ const DEFAULT_DATA : Dictionary = {
 	"hide_reminder_text": [],
 	"text_down": false,
 	"bolden_tag": false,
+	"black_text": false,
 	"alt_arts": 0,
 	"created_at": "2026-12-31"
 }
@@ -26,6 +27,7 @@ var has_title : bool;
 var has_grave_effect : bool;
 var text_down : bool;
 var bolden_tag : bool;
+var black_text : bool;
 var alt_arts : int;
 var created_at : String;
 var release_year : int;
@@ -45,6 +47,7 @@ func load_json() -> void:
 	eat_hide_reminder_text(data.hide_reminder_text);
 	text_down = data.text_down;
 	bolden_tag = data.bolden_tag;
+	black_text = data.black_text;
 	alt_arts = data.alt_arts;
 	created_at = data.created_at;
 	release_year = int(created_at.substr(0, 4));

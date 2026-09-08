@@ -143,6 +143,8 @@ func update_effects() -> void:
 	effects_label.position.y = -304 if (card_data.keywords.size() == 1 and card_data.has_title) else -324;
 	effects_label.text = effects_text;
 	effects_label.position.y += 12 if card_data.text_down or effects_label.get_line_count() > 5 else 0;
+	effects_label.add_theme_color_override("default_color", Color.BLACK if card_data.black_text else Color.WHITE);
+	effects_label.add_theme_color_override("font_outline_color", Color.WHITE if card_data.black_text else Color.BLACK);
 	gravestone_icon.visible = card_data.has_grave_effect;
 
 func update_outer_layer() -> void:
