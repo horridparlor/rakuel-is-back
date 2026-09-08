@@ -9,7 +9,7 @@ const OUTER_LAYER_CORNER_RADIUS : int = 75;
 const INNER_PANEL_COLOR_ROCK : String = "#398f5b";
 const INNER_PANEL_COLOR_PAPER : String = "#2499c8";
 const INNER_PANEL_COLOR_SCISSORS : String = "#f7793e";
-const INNER_PANEL_COLOR_GUN : String = "#e0c70d";
+const INNER_PANEL_COLOR_GUN : String = "#ffe100";
 const INNER_PANEL_CORNER_RADIUS : int = 45;
 
 const TYPE_ICON_ROCK_X : int = -69;
@@ -23,7 +23,7 @@ const POWER_PATTERN_PATH : String = "res://Assets/Art/CardPatterns/PowerPatterns
 const POWER_PANEL_COLOR_ROCK : String = "#1e5b46";
 const POWER_PANEL_COLOR_PAPER : String = "#14519d";
 const POWER_PANEL_COLOR_SCISSORS : String = "#bf3c29";
-const POWER_PANEL_COLOR_GUN : String = "#6e6102";
+const POWER_PANEL_COLOR_GUN : String = "#050400";
 const POWER_PANEL_CORNER_RADIUS : int = 33;
 const POWER_PANEL_ROCK_CORNER_RADIUS : int = 45;
 const POWER_PANEL_BORDER_WIDTH : int = 8;
