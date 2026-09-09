@@ -2,7 +2,7 @@
 	"id": 124,
 	"name": "Nuke",
 	"type": "rock",
-	"power": 13000,
+	"power": 10000,
 	"keywords": [
 		"trump-card"
 	],
