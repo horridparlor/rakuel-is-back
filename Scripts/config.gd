@@ -1,7 +1,7 @@
 extends Node
 
 const VERSION : String = "v0.1";
-const MAX_CARD_ID : int = 125;
-const STARTING_CARD_ID : int = 83;
+const MAX_CARD_ID : int = 180;
+const STARTING_CARD_ID : int = 135;
 const PRINT_MODE : bool = true;
 const SCREENSHOT_ALL : bool = false;
