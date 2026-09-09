@@ -1,11 +1,11 @@
 {
-	"id": 131,
-	"name": "Karl Marx",
-	"type": "scissor",
+	"id": 149,
+	"name": "Meemin Pappa",
+	"type": "rock",
 	"power": 8000,
 	"keywords": [
 		"father",
-		"communism"
+		"meemin"
 	],
 	"created_at": ""
 }

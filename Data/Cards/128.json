@@ -1,10 +1,11 @@
 {
 	"id": 128,
-	"name": "Lenin",
+	"name": "Sokrates",
 	"type": "scissors",
 	"power": 6000,
 	"keywords": [
-		"anti-trump"
+		"father",
+		"debating"
 	],
 	"created_at": ""
 }

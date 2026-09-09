@@ -1,10 +1,14 @@
 {
 	"id": 130,
-	"name": "Hellsinki City",
-	"type": "paper",
-	"power": 9000,
+	"name": "Nitro Hades",
+	"type": "rock",
+	"power": 4000,
 	"keywords": [
-		"rakuel-was-here"
+		"infinity",
+		"necromancy"
+	],
+	"hide_reminder_text": [
+		"infinity"
 	],
 	"created_at": ""
 }

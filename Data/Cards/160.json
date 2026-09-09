@@ -1,10 +1,10 @@
 {
-	"id": 132,
-	"name": "Tyrannosaurus",
+	"id": 160,
+	"name": "Alian Invation",
 	"type": "rock",
 	"power": 10000,
 	"keywords": [
-		"dinosaur"
+		"teleportation"
 	],
 	"created_at": ""
 }

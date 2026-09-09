@@ -2,7 +2,7 @@
 	"id": 129,
 	"name": "Rusty Scissors",
 	"type": "scissors",
-	"power": 2000,
+	"power": 3000,
 	"keywords": [
 		"rust"
 	],
