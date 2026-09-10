@@ -94,6 +94,7 @@ enum Keyword {
 	NECROMANCY,
 	POTENTIAL,
 	POVERTY,
+	PROPAGATION,
 	REPLICATE,
 	REVERSE_PSYCHOLOGY,
 	RIZZ,
@@ -112,7 +113,6 @@ enum Keyword {
 	TREASURE,
 	TRUMP_CARD,
 	TUTOR,
-	VEGETATIVE_PROPAGATION,
 	WANDERRET,
 	WATCH_QUICK,
 	WIZARD,
@@ -209,6 +209,7 @@ const KeywordNames : Dictionary = {
 	Keyword.NECROMANCY: "Necromancy",
 	Keyword.POTENTIAL: "Potential",
 	Keyword.POVERTY: "Poverty",
+	Keyword.PROPAGATION: "Propagation",
 	Keyword.REPLICATE: "Replicate",
 	Keyword.REVERSE_PSYCHOLOGY: "Reverse Psychology",
 	Keyword.RIZZ: "Rizz",
@@ -227,7 +228,6 @@ const KeywordNames : Dictionary = {
 	Keyword.TREASURE: "Treasure",
 	Keyword.TRUMP_CARD: "Trump Card",
 	Keyword.TUTOR: "Tutor",
-	Keyword.VEGETATIVE_PROPAGATION: "Vegetative Propagation",
 	Keyword.WANDERRET: "Wanderret",
 	Keyword.WATCH_QUICK: "Watch Quick!",
 	Keyword.WIZARD: "Wizard",
@@ -284,6 +284,7 @@ const KeywordCodes : Dictionary = {
 	Keyword.NECROMANCY: "necromancy",
 	Keyword.POTENTIAL: "potential",
 	Keyword.POVERTY: "poverty",
+	Keyword.PROPAGATION: "propagation",
 	Keyword.REPLICATE: "replicate",
 	Keyword.REVERSE_PSYCHOLOGY: "reverse-psychology",
 	Keyword.RIZZ: "rizz",
@@ -302,7 +303,6 @@ const KeywordCodes : Dictionary = {
 	Keyword.TREASURE: "treasure",
 	Keyword.TRUMP_CARD: "trump-card",
 	Keyword.TUTOR: "tutor",
-	Keyword.VEGETATIVE_PROPAGATION: "vegetative-propagation",
 	Keyword.WANDERRET: "wanderret",
 	Keyword.WATCH_QUICK: "watch-quick",
 	Keyword.WIZARD: "wizard",
@@ -359,6 +359,7 @@ const TranslateKeyword : Dictionary = {
 	"necromancy": Keyword.NECROMANCY,
 	"potential": Keyword.POTENTIAL,
 	"poverty": Keyword.POVERTY,
+	"propagation": Keyword.PROPAGATION,
 	"replicate": Keyword.REPLICATE,
 	"reverse-psychology": Keyword.REVERSE_PSYCHOLOGY,
 	"rizz": Keyword.RIZZ,
@@ -377,7 +378,6 @@ const TranslateKeyword : Dictionary = {
 	"treasure": Keyword.TREASURE,
 	"trump-card": Keyword.TRUMP_CARD,
 	"tutor": Keyword.TUTOR,
-	"vegetative-propagation": Keyword.VEGETATIVE_PROPAGATION,
 	"wanderret": Keyword.WANDERRET,
 	"watch-quick": Keyword.WATCH_QUICK,
 	"wizard": Keyword.WIZARD,
@@ -401,7 +401,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.ELDER_SLIME: "...from a non-elder slime, opponent discards 2 cards.",
 	Keyword.EQUAL_EXCHANGE: "Opponent discards a card.",
 	Keyword.ERUPTION: "Destroy all supporting cards.",
-	Keyword.EVERYTHING: "Todo",
+	Keyword.EVERYTHING: "If this card is destroyed,\nyou lose the round.",
 	Keyword.EXAM: "Opponent guesses the type of the top card of your deck. Then, mill it.\n[b]•[/b] Right guess, they draw a card.\n[b]•[/b] Wrong guess, they discard a card.",
 	Keyword.FACISM: "If they pass with %WEAK_TYPE with 5 000 or less power, destroy all %WEAK_TYPES.",
 	Keyword.FAM: "...triggers twice more.",
@@ -434,12 +434,13 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.NECROMANCY: "You may play a zombie from your grave supporting this.",
 	Keyword.POTENTIAL: "Roll a D6. If 1, destroy this card. If 6, search a gun with %MORE_POWER or more power, and evolve this into it.",
 	Keyword.POVERTY: "To evolve this, discard a card.",
+	Keyword.PROPAGATION: "When you reap your farm, you can use this card to start a new farm.",
 	Keyword.REPLICATE: "Unlimited copies of this card.",
 	Keyword.REVERSE_PSYCHOLOGY: "All cards can devolve, normal evolving is forbidden.",
 	Keyword.RIZZ: "Opponent may discard a card to negate your rizz. If they don't, reveal one of their face-down cards.",
 	Keyword.RUST: "Defeats any gun.",
 	Keyword.SAHKOTALO: "You may discard up to 2 cards. If you do, retrigger the effects of up to that many cards supporting this.",
-	Keyword.SEEDS: "Todo",
+	Keyword.SEEDS: "...and any number of other %SAME_TYPES. For every 5 cards reshuffled, [i]grow[/i] [b][i](draw a card face-down to)[/i][/b] your [i]farm[/i]. During your turn, you may [i]reap[/i] the farm. [b]At the end of each round[/b], grow the farm.",
 	Keyword.SINFUL: "...from a card with 2 000 or less power, mill 3. Opponent discards a card for each scissors milled.",
 	Keyword.SISTER_VIRUS: "This card may evolve into any little sister in your grave.",
 	Keyword.SLIME: "Slime",
@@ -452,7 +453,6 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.TREASURE: "Draw a card.",
 	Keyword.TRUMP_CARD: "While you have 5 or less cards in hand, you may discard this card. If you do, negate all lingering effects. Also, hide all face-up prize cards.",
 	Keyword.TUTOR: "Discard this. After drawing, search %SAME_TYPE with %LESS_POWER or less power.",
-	Keyword.VEGETATIVE_PROPAGATION: "Todo",
 	Keyword.WANDERRET: "...a wanderret, draw a card.",
 	Keyword.WATCH_QUICK: "Reveal target face-down card.",
 	Keyword.WIZARD: "Can evolve into any card, but play that card face-down.",
@@ -476,7 +476,7 @@ const KeywordTags : Dictionary = {
 	Keyword.ELDER_SLIME: KeywordTag.WHEN_EVOLVES,
 	Keyword.EQUAL_EXCHANGE: KeywordTag.IF_DISCARDED,
 	Keyword.ERUPTION: KeywordTag.WHEN_PLAYED,
-	Keyword.EVERYTHING: KeywordTag.WHEN_PLAYED,
+	Keyword.EVERYTHING: KeywordTag.STATIC,
 	Keyword.EXAM: KeywordTag.WHEN_PLAYED,
 	Keyword.FACISM: KeywordTag.OPPONENT_PASSES,
 	Keyword.FAM: KeywordTag.IF_FULLY_SUPPORTED,
@@ -509,12 +509,13 @@ const KeywordTags : Dictionary = {
 	Keyword.NECROMANCY: KeywordTag.WHEN_PLAYED,
 	Keyword.POTENTIAL: KeywordTag.WHEN_PLAYED,
 	Keyword.POVERTY: KeywordTag.STATIC,
+	Keyword.PROPAGATION: KeywordTag.FROM_GRAVE,
 	Keyword.REPLICATE: KeywordTag.DECK_BUILDING,
 	Keyword.REVERSE_PSYCHOLOGY: KeywordTag.STATIC,
 	Keyword.RIZZ: KeywordTag.DISCARD_FROM_HAND,
 	Keyword.RUST: KeywordTag.STATIC,
 	Keyword.SAHKOTALO: KeywordTag.WHEN_PLAYED,
-	Keyword.SEEDS: KeywordTag.WHEN_PLAYED,
+	Keyword.SEEDS: KeywordTag.RESHUFFLE_THIS,
 	Keyword.SINFUL: KeywordTag.WHEN_EVOLVES,
 	Keyword.SISTER_VIRUS: KeywordTag.STATIC,
 	Keyword.SLIME: KeywordTag.TITLE,
@@ -527,7 +528,6 @@ const KeywordTags : Dictionary = {
 	Keyword.TREASURE: KeywordTag.WHEN_MILLED,
 	Keyword.TRUMP_CARD: KeywordTag.FROM_HAND,
 	Keyword.TUTOR: KeywordTag.START_OF_ROUND,
-	Keyword.VEGETATIVE_PROPAGATION: KeywordTag.WHEN_PLAYED,
 	Keyword.WANDERRET: KeywordTag.WHEN_SUPPORTING,
 	Keyword.WATCH_QUICK: KeywordTag.RESHUFFLE_THIS,
 	Keyword.WIZARD: KeywordTag.STATIC,
@@ -544,7 +544,7 @@ func is_keyword_grave_effect(keyword : Keyword) -> bool:
 func is_long_keyword(keyword : Keyword) -> bool:
 	return KeywordDescriptions[keyword].length() > 80;
 
-func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false, is_only_keyword : bool = false, power : int = 0, bolden_tag : bool = false) -> String:
+func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, hide_reminder : bool = false, is_only_keyword : bool = false, power : int = 0, bolden_tag : bool = false, is_second_title_in_row : bool = false) -> String:
 	var keyword_name : String = KeywordNames[keyword];
 	var tag_name : String = KeywordTagNames[KeywordTags[keyword]];
 	var description : String = enrich_keyword_description(KeywordDescriptions[keyword], card_type, power);
@@ -558,7 +558,7 @@ func get_keyword_text(keyword : Keyword, card_type : CardType = CardType.ROCK, h
 		var dash_idx = keyword_name.find("-");
 		formatted_name = KEYWORD_DASHED_NAME_STRING % [name_font_size, keyword_name.substr(0, dash_idx + 1), keyword_name.substr(dash_idx + 1)];
 	if is_title_keyword(keyword):
-		font_size = 48 if is_only_keyword else 40;
+		font_size = 48 if (is_only_keyword or is_second_title_in_row) else 40;
 		if is_only_keyword:
 			description = description.trim_suffix(" of");
 		return TITLE_STRING % [font_size, description];

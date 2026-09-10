@@ -71,8 +71,11 @@ func eat_hide_reminder_text(source : Array) -> void:
 
 func get_effects_text() -> String:
 	var effects_text : String;
+	var previous_was_title : bool = false;
 	for keyword in keywords:
 		if !effects_text.is_empty():
 			effects_text += "\n";
-		effects_text += CardEnums.get_keyword_text(keyword, card_type, hide_reminder_text.has(keyword), keywords.size() == 1, power, bolden_tag);
+		var is_title : bool = CardEnums.is_title_keyword(keyword);
+		effects_text += CardEnums.get_keyword_text(keyword, card_type, hide_reminder_text.has(keyword), keywords.size() == 1, power, bolden_tag, is_title and previous_was_title);
+		previous_was_title = is_title;
 	return effects_text;

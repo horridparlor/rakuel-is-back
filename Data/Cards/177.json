@@ -2,9 +2,9 @@
 	"id": 177,
 	"name": "Pineapple",
 	"type": "rock",
-	"power": 6000,
+	"power": 7000,
 	"keywords": [
-		"vegetative-propagation"
+		"propagation"
 	],
 	"created_at": ""
 }
