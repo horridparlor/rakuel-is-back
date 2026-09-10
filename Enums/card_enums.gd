@@ -449,7 +449,7 @@ const KeywordDescriptions : Dictionary = {
 	Keyword.SUS: "...would be revealed, you may reveal this card from your hand instead.",
 	Keyword.SWEDISH: "This card can evolve into a card with the same power.",
 	Keyword.TELEPORTATION: "You may replace your primary card with this card from your hand. If you do, discard either %WEAK_TYPE or 2 cards.",
-	Keyword.TRANSFUSION: "Swap the places of 2 %SAME_TYPES.\nCannot swap other cards [b][i](than this)[/i][/b] on a primary stack, or hidden cards.",
+	Keyword.TRANSFUSION: "...on the primary stack, swap the places of 2 %SAME_TYPES.",
 	Keyword.TREASURE: "Draw a card.",
 	Keyword.TRUMP_CARD: "While you have 5 or less cards in hand, you may discard this card. If you do, negate all lingering effects. Also, hide all face-up prize cards.",
 	Keyword.TUTOR: "Discard this. After drawing, search %SAME_TYPE with %LESS_POWER or less power.",
