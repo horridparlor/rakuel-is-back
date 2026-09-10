@@ -2,7 +2,7 @@
 	"id": 167,
 	"name": "Drop Of Blood",
 	"type": "scissors",
-	"power": 0,
+	"power": 4000,
 	"keywords": [
 		"transfusion"
 	],
